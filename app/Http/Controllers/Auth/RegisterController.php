@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -36,7 +37,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('checkAccess');
     }
 
     /**
@@ -61,11 +62,27 @@ class RegisterController extends Controller
      * @return User
      */
     protected function create(array $data)
-    {
+    {    
+	
+	      $request = new Request;
+		  
+		  $user   = new User;
+		//The registration is from admin
+	     if ( isset($data['submit'] )){
+		 
+		    $user->fullname = $data['fullname'];
+			$user->email=$data['email'];
+			$user->password = bcrypt($data['password']);
+			$user->is_admin  = true;
+			$user->save();
+			
+			return $user;
+		}  
         return User::create([
             'fullname' => $data['fullname'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+			'is_admin' =>false
         ]);
     }
 }
