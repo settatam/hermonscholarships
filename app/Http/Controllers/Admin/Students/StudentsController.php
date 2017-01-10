@@ -28,7 +28,7 @@ class StudentsController extends Controller {
 
 	    $number_of_students = $this->number_of_students();
 
-		$students = Student::paginate(15);
+				$students = Student::paginate(15);
 
         return view('admin.students.index', compact ('number_of_students','students'));
     }

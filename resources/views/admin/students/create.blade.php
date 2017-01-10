@@ -19,46 +19,46 @@
           <div class="panel panel-primary">
             <h2>Students</h2>
             @include('layouts.success')
-                <form action="{{ $student ? '/admin/edit/students/'.$student_id : '/admin/new/students' }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                <form action="{{ isset($student) ? '/admin/edit/students/'.$student_id : '/admin/new/students' }}" method="post" enctype="multipart/form-data" class="form-horizontal">
                 {{csrf_field()}}
         <fieldset id="form">
           <legend>Guardian Details</legend>
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-firstname">First Name</label>
             <div class="col-sm-10">
-              <input type="text"  required="required" name="name" value="{{$guardian->name ?  $guardian->name : old('name')    }}" placeholder="First Name" id="input-firstname" class="form-control" />
+              <input type="text"  required="required" name="name" value="{{ !empty($guardian->name) ?  $guardian->name : old('name')    }}" placeholder="First Name" id="input-firstname" class="form-control" />
                           </div>
           </div>
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-lastname">Last Name</label>
             <div class="col-sm-10">
-              <input type="text"  required="required" name="last_name" value="{{$guardian->last_name ?  $guardian->last_name : old('last_name')    }}" placeholder="Last Name" id="input-lastname" class="form-control" />
+              <input type="text"  required="required" name="last_name" value="{{  !empty($guardian->last_name) ?  $guardian->last_name : old('last_name')    }}" placeholder="Last Name" id="input-lastname" class="form-control" />
                           </div>
           </div>
           
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-postcode">Phone</label>
             <div class="col-sm-10">
-              <input type="text"  required="required" name="phone" value="{{$guardian->phone ?  $guardian->phone : old('phone')    }}" placeholder="Phone" id="input-postcode" class="form-control" />
+              <input type="text"  required="required" name="phone" value="{{  !empty($guardian->phone) ?  $guardian->phone : old('phone')    }}" placeholder="Phone" id="input-postcode" class="form-control" />
                           </div>
           </div>
         
           <div class="form-group required">
               <label class="col-sm-2 control-label" for="input-address-1">Address 1</label>
               <div class="col-sm-10">
-                <input type="text"  required="required" name="address" value="{{$guardian->address ?  $guardian->address : old('address')    }}" placeholder="Address 1" id="input-address-1" class="form-control" />
+                <input type="text"  required="required" name="address" value="{{  !empty($guardian->address) ?  $guardian->address : old('address')    }}" placeholder="Address 1" id="input-address-1" class="form-control" />
               </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-address-2">Address 2</label>
             <div class="col-sm-10">
-              <input type="text"   name="address_2" value="{{$guardian->address_2 ?  $guardian->address_2 : old('address_2')    }}" placeholder="Address 2" id="input-address-2" class="form-control" />
+              <input type="text"   name="address_2" value="{{ !empty($guardian->address_2) ?  $guardian->address_2 : old('address_2')    }}" placeholder="Address 2" id="input-address-2" class="form-control" />
             </div>
           </div>
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-city">City</label>
             <div class="col-sm-10">
-              <input type="text"  required="required" name="city" value="{{$guardian->city ?  $guardian->city : old('city')    }}" placeholder="City" id="input-city" class="form-control" />
+              <input type="text"  required="required" name="city" value="{{!empty($guardian->city) ?  $guardian->city : old('city')    }}" placeholder="City" id="input-city" class="form-control" />
                           </div>
           </div>
          
@@ -66,14 +66,14 @@
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-postcode">Job Description</label>
             <div class="col-sm-10">
-              <input type="job" name="job" value="{{$guardian->job ?  $guardian->job : old('job')    }}" placeholder="job" id="input-job" class="form-control" />
+              <input type="job" name="job" value="{{ !empty( $guardian->job) ?  $guardian->job : old('job')    }}" placeholder="job" id="input-job" class="form-control" />
                           </div>
           </div>
           
            <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-salary">Salary Range</label>
             <div class="col-sm-10">
-              <input type="text" name="salary" value="{{$guardian->salary_range ?  $guardian->salary_range : old('salary_range')    }}" placeholder="salary" id="input-salary" class="form-control" />
+              <input type="text" name="salary" value="{{  !empty($guardian->salary_range) ?  $guardian->salary_range : old('salary_range')    }}" placeholder="salary" id="input-salary" class="form-control" />
                           </div>
           </div>
           <hr/>
@@ -82,13 +82,13 @@
             <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-firstname">First Name</label>
             <div class="col-sm-10">
-              <input type="text" name="student_name[]" value="{{$student->name ?  $student->name : ''    }}" required="required" placeholder="First Name" id="input-firstname" class="form-control" />
+              <input type="text" name="student_name[]" value="{{  !empty($student->name) ?  $student->name : ''    }}" required="required" placeholder="First Name" id="input-firstname" class="form-control" />
                           </div>
           </div>
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-lastname">Last Name</label>
             <div class="col-sm-10">
-              <input type="text" name="student_last_name[]" required="required" value="{{ $student->last_name ?  $student->last_name : ''    }}" placeholder="Last Name" id="input-lastname" class="form-control" />
+              <input type="text" name="student_last_name[]" required="required" value="{{  !empty($student->last_name) ?  $student->last_name : ''    }}" placeholder="Last Name" id="input-lastname" class="form-control" />
                           </div>
           </div>
            <div class="form-group required">
@@ -96,14 +96,14 @@
               <div class="col-sm-10">
                <select style="width:100%;" required="required"  class="form-control" name="grade[]"  tabindex="1" >
                   <option value="">Choose</option>
-                   <option  {{ $student->grade  && $student->grade == 'kindergarten'?  'selected' : ''    }} value="kindergarten">Kindergarten</option>
-                    <option {{ $student->grade  && $student->grade == 'Nursery 1'?  'selected' : ''    }} value="Nursery 1">Nursery 1</option>
-                    <option {{ $student->grade  && $student->grade == 'Nursery 2'?  'selected' : ''    }} value="Nursery 2">Nursery 2</option>
-                    <option {{ $student->grade  && $student->grade == 'Primary 1'?  'selected' : ''    }} value="Primary 2">Primary 1</option>
-                    <option {{ $student->grade  && $student->grade == 'Primary 2'?  'selected' : ''    }} value="Primary 2">Primary 2</option>
-                    <option {{ $student->grade  && $student->grade == 'Primary 3'?  'selected' : ''    }} value="Primary 3">Primary 3</option>
-                    <option {{ $student->grade  && $student->grade == 'Primary 4'?  'selected' : ''    }} value="Primary 4">Primary 4</option>
-                    <option {{ $student->grade  && $student->grade == 'Primary 5'?  'selected' : ''    }} value="Primary 5">Primary 5</option>
+                   <option  {{ !empty($student->grade)  && $student->grade == 'kindergarten'?  'selected' : ''    }} value="kindergarten">Kindergarten</option>
+                    <option {{ !empty($student->grade)  && $student->grade == 'Nursery 1'?  'selected' : ''    }} value="Nursery 1">Nursery 1</option>
+                    <option {{ !empty($student->grade)  && $student->grade == 'Nursery 2'?  'selected' : ''    }} value="Nursery 2">Nursery 2</option>
+                    <option {{ !empty( $student->grade)  && $student->grade == 'Primary 1'?  'selected' : ''    }} value="Primary 2">Primary 1</option>
+                    <option {{ !empty($student->grade)  && $student->grade == 'Primary 2'?  'selected' : ''    }} value="Primary 2">Primary 2</option>
+                    <option {{ !empty($student->grade)  && $student->grade == 'Primary 3'?  'selected' : ''    }} value="Primary 3">Primary 3</option>
+                    <option {{ !empty($student->grade)  && $student->grade == 'Primary 4'?  'selected' : ''    }} value="Primary 4">Primary 4</option>
+                    <option {{ !empty($student->grade)  && $student->grade == 'Primary 5'?  'selected' : ''    }} value="Primary 5">Primary 5</option>
               </select>
               </div>
             </div>
@@ -122,20 +122,20 @@
               
             <div class="col-sm-10">
               <input type="file" name="file[]" required="required" class="form-control" />
-              <input type="hidden" name="image_from_database[]" required="required" value="{{ $student->last_name ?  $student->last_name : ''    }}" placeholder="Last Name" id="input-lastname" class="form-control" />
+              <input type="hidden" name="image_from_database[]" required="required" value="{{ !empty($student->last_name) ?  $student->last_name : ''    }}" placeholder="Last Name" id="input-lastname" class="form-control" />
 
             </div>
           </div>
            <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-amount">Amount</label>
             <div class="col-sm-10">
-              <input type="text" name="amount[]" value="{{$student->amount ?  $student->amount : ''    }}" required="required" class="form-control" />
+              <input type="text" name="amount[]" value="{{!empty( $student->amount) ?  $student->amount : ''    }}" required="required" class="form-control" />
             </div>
           </div>
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-postcode">Description</label>
             <div class="col-sm-10">
-              <textarea  name="description[]" required="required"  class="form-control" >{{ $student->description ?  $student->description : ''    }}</textarea>
+              <textarea  name="description[]" required="required"  class="form-control" >{{ !empty($student->description) ?  $student->description : ''    }}</textarea>
             </div>
           </div>
           
