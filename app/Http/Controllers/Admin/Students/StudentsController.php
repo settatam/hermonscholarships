@@ -34,7 +34,9 @@ class StudentsController extends Controller {
     }
 	
 	 public function create(Request $request)
-    {
+    {    $student  = null;
+		 $guardian = null;
+		 $student_id =null;
 		 $number_of_students = $this->number_of_students();
        if ($request->isMethod('post')) {	
 	       
@@ -76,7 +78,7 @@ class StudentsController extends Controller {
 	 
 				 	
 		}
-        return view('admin.students.create',compact('number_of_students'));
+        return view('admin.students.create',compact('number_of_students','student','guardian','student_id'));
     }
 	
 		
@@ -93,6 +95,7 @@ class StudentsController extends Controller {
 	} 
 
 	public  function edit (Request $request, $student_id) {
+		
 		
 		$student  = Student::find($student_id);
 		$guardian = Guardian::find($student->parent_id);
