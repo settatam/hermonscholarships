@@ -22,20 +22,19 @@
                 <table class="table table-bordered">
                   <thead>
                     <tr>
-                     <th>Image</th>
+                      <th>Image</th>
                       <th>Name</th>
                       <th>Grade</th>
-                      <th>Number of Sponsors</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
                     @foreach ($students as $details )
                     <tr>
-                      <td><img width="60" height="60" src="/images/students/{{ $details->pictures }}"  /></td>
+                     <td> <img width="100" height="100" src="/images/students/{{$details->photos }}"  /></td>
                       <td> {{ $details->name }}  {{ $details->last_name}}</td>
                       <td>{{ $details->grade}}</td>
-                      <td>--</td>
+                      
                       <td>
                           <div class="btn-group" role="group" aria-label="...">
                             <a href="/admin/view/students/{{ $details->id}}" class="btn btn-default">View</a>&nbsp;

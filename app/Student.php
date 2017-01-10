@@ -14,4 +14,8 @@ class Student extends Model
 	 public function reports(){
 	  return $this->hasMany('App\Report');	
 	}
+	
+	 public function photo(){
+	  return $this->hasOne('App\Photo');
+	}
 }

@@ -16,7 +16,7 @@
      
         <div class="col-md-7">
         
-         <img  src="/images/students/{{$student->pictures }}"  class="img-rounded" alt="...">
+         <img  src="/images/students/{{$photo->photos }}"  class="img-rounded" alt="...">
        
           <br/>
           <p class="margin-top-40">

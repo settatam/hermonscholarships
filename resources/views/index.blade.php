@@ -29,7 +29,7 @@ Join Thousands of People Who Are Giving A Child A Future</p>
 
       <div class="thumbnail">
 
-       <img class="img-responsive" src="images/students/{{$details->pictures}}" alt="...">
+       <img class="img-responsive" src="images/students/{{$details->photos}}" alt="...">
         <div class="caption">
         <h3>{{ $details->name}}  {{ $details->last_name}}</h3>
         <p class="truncate">{{ $details->description}}</p>
