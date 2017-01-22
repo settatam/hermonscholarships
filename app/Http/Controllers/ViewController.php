@@ -16,7 +16,10 @@ class  ViewController extends Controller
 		
 		$reports = Student::find($id)->reports;
 		
-		return view('view.index',compact('student','reports'));
+	    $photo   = Student::find($id)->photo;
+
+		
+		return view('view.index',compact('student','reports','photo'));
 	}
 
     

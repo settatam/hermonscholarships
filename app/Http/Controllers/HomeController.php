@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -26,7 +26,13 @@ class HomeController extends Controller
     public function index()
     {   
 	
-	    $students = Student::all();
+	     //$students = Student::all();
+		
+		 $students = \DB::table('students')
+            ->join('photos', 'students.id', '=', 'photos.student_id')
+            ->select('students.*', 'photos.photos')
+            ->get();
+		
         return view('index',compact('students'));
     }
 }

@@ -6,9 +6,13 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 
+
+
 use App\Student;
 
 use App\Guardian;
+
+use App\Photo;
 
 
 class StudentsController extends Controller {
@@ -27,13 +31,23 @@ class StudentsController extends Controller {
     {
 
 	    $number_of_students = $this->number_of_students();
+<<<<<<< HEAD
 
 				$students = Student::paginate(15);
 
+=======
+		
+		 $students = \DB::table('students')
+            ->join('photos', 'students.id', '=', 'photos.student_id')
+            ->select('students.*', 'photos.photos')
+            ->paginate(15);
+		
+>>>>>>> develop
         return view('admin.students.index', compact ('number_of_students','students'));
     }
 
 	 public function create(Request $request)
+<<<<<<< HEAD
     {
 		 $number_of_students = $this->number_of_students();
        if ($request->isMethod('post')) {
@@ -76,11 +90,48 @@ class StudentsController extends Controller {
 
 
 		}
+=======
+    {    
+		 $number_of_students = $this->number_of_students();
+		 
+              if ($request->isMethod('post')) {	
+	                
+		    	    $student = new Student();
+					
+					 $this->validate($request, [
+					   'student_name'           => 'required|max:30',
+					   'student_last_name'      => 'required|max:30',
+					   'grade'=>'required',
+					   'file' => 'mimes:jpeg,png',
+					   'description'=>'required'
+				    ]);
+					     
+					 $student->user_id=\Auth::user()->id;
+					 $student->name=$request->student_name;
+					 $student->last_name=$request->student_last_name;
+					 $student->description=$request->description;
+					 $student->grade=$request->grade;
+					 $student->save();
+					                     
+					 $files = $request->file('file');
+
+				     $files->move('images/students', $files->getClientOriginalName());
+					
+					 $photo = new Photo(['student_id'=>$student->id,'photos'=>$files->getClientOriginalName()]);
+					 
+					 $photo->save();
+					 
+				    return redirect('/admin/students')->with('status', 'Students Details Created');//reject if we have only on addres	  
+			   }
+			    
+				 
+>>>>>>> develop
         return view('admin.students.create',compact('number_of_students'));
     }
 
 
 	public  function show(Request $request,$student_id){
+<<<<<<< HEAD
 
 	  $student = Student::find($student_id);
 
@@ -89,6 +140,18 @@ class StudentsController extends Controller {
 	  $number_of_students = $this->number_of_students();
 
 	  return view('admin.students.students',compact('number_of_students','student','reports'));
+=======
+		
+		   $student = Student::find($student_id);
+		   
+		   $photo   = Student::find($student_id)->photo;
+		  
+		   $reports = Student::find($student_id)->reports;
+		 
+		   $number_of_students = $this->number_of_students();
+		 
+		   return view('admin.students.students',compact('number_of_students','student','reports','photo'));
+>>>>>>> develop
 
 	}
 
@@ -97,6 +160,7 @@ class StudentsController extends Controller {
 		$student  = Student::find($student_id);
 		$guardian = Guardian::find($student->parent_id);
 		$number_of_students = $this->number_of_students();
+<<<<<<< HEAD
 	    if ($request->isMethod('post')) {
 
 		         //persist to database
@@ -130,13 +194,44 @@ class StudentsController extends Controller {
 					$student->save();
 
 
+=======
+	    $photo   = Student::find($student_id)->photo;
+
+	    if ($request->isMethod('post')) {	
+	       
+		        
+			   $files = $request->file('file');
+		   
+			   if ( $files ) {  
+				  $photo->photos=$files->getClientOriginalName();
+				  $files->move('images/students', $files->getClientOriginalName());
+			   } else { 
+				   $photo->photos=  $request->image_from_database;
+
+			   }
+			   $photo->save();   
+			   $student->user_id=\Auth::user()->id;
+			   $student->name=$request->student_name;
+			   $student->last_name=$request->student_last_name;
+			   $student->description=$request->description;
+			   $student->grade=$request->grade;
+			   $student->save();      				  	  
+			   
+				 
+>>>>>>> develop
 		  return redirect()->back()->with('status', 'Students Details Updated');//reject if we have only on address
 
 
 		}
+<<<<<<< HEAD
 
 	    return view('admin.students.create',compact('number_of_students','student','guardian','student_id'));
 
+=======
+	   
+	    return view('admin.students.edit',compact('number_of_students','student','guardian','student_id','photo'));
+ 
+>>>>>>> develop
 	}
 	public  function number_of_students ( ) {
 	   $count = Student::count();
@@ -156,7 +251,7 @@ class StudentsController extends Controller {
 
 
 	       Student::destroy($student_id);
-		  return redirect()->back()->with('status', 'Students Details rEMOVED ');//reject if we have only on address
+		   return redirect()->back()->with('status', 'Students Details rEMOVED ');//reject if we have only on address
 
 	}
 

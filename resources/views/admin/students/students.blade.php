@@ -25,16 +25,13 @@
                 <tbody>
                  <tr>
                     <td>Image</td>
-                    <td><img width="100" height="100" src="/images/students/{{$student->pictures }}"  /></td>
+                    <td><img width="100" height="100" src="/images/students/{{$photo->photos }}"  /></td>
                   </tr>
                   <tr>
                     <td>Full Name</td>
                     <td>{{$student->name}} {{$student->last_name}}  </td>
                   </tr>
-                  <tr>
-                    <td>Name of Guardian</td>
-                    <td>---  </td>
-                  </tr>
+                  
                                     <tr>
                     <td>Grade</td>
                     <td>{{$student->grade}}</td>
