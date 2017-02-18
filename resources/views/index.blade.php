@@ -38,15 +38,11 @@ Join Thousands of People Who Are Giving A Child A Future</p>
             60%
           </div>
        </div>
-        <div class="funding_stats">
-          <div class="stat funded"><span class="numerical">37% funded</span></div>
-          <div class="stat raised"><span class="numerical">$27 raised</span></div>
-          <div class="stat to_go"><span class="numerical">$455 to go</span></div>
-          <div class="clearfix"></div>
-        </div>
+        
       </div>
     </div>
     </a>
+    <p></p>
   </div>
   @endforeach
   
