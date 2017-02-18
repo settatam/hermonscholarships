@@ -16,6 +16,7 @@ Route::get('/',  'HomeController@index');
 Route::get('/admin',            'Admin\HomeController@index');
 Route::get('/admin/students',   'Admin\Students\StudentsController@index');
 Route::get('/admin/users',      'Admin\HomeController@index');
+Route::get('/admin/test',      'Admin\HomeController@index');
 Route::get('/admin/login',      'Auth\LoginController@showLoginForm');
 Route::get('/admin/register',   'Auth\RegisterController@showRegistrationForm');
 Route::post('/admin/login',      'Auth\LoginController@login');
@@ -45,5 +46,3 @@ Route::get('/account',           'AccountController@index');
 Route::get('/changepassword',    'AccountController@chp');
 Route::get('/address',           'AccountController@address');
 Route::get('/donations',         'AccountController@donations');
-
-
