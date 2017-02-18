@@ -42,7 +42,7 @@ class RegisterController extends Controller
     {   
 	
 	     if (  $request->is ('admin/*') ) { 
-	          // $this->middleware('checkAccess');
+	          $this->middleware('checkAccess');
 	      }
     }
 	
