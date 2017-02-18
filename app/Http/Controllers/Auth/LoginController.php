@@ -40,15 +40,22 @@ class LoginController extends Controller
     }
 	
 	/**
+=======
+    
+    
+    /**
+>>>>>>> cd6ae836db2d9f4dce5373d471c67b7eac253b87
      * Show the application's login form.
      *
      * @return \Illuminate\Http\Response
      */
     public function showLoginForm(Request $request)
     {   
-	   if (  $request->is ('admin/*') ) { 
+	   if (  $request->is('admin/*') ) { 
 	          return view('admin.auth.login');
 	    }
         return view('auth.login');
-    }
+}
+
+
 }
