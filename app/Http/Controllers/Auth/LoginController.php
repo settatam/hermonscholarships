@@ -55,7 +55,45 @@ class LoginController extends Controller
 	          return view('admin.auth.login');
 	    }
         return view('auth.login');
-}
+    }
+	
+	/**
+     * The user has been authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function authenticated(Request $request, $user)
+    {
+        //
+		 if (  $request->is('admin/*') ) { 
+	          return redirect('/admin');
+	    }
+		
+    }
+	
+	/**
+     * Log the user out of the application.
+     *
+     * @param \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->flush();
+
+        $request->session()->regenerate();
+		
+         if (  $request->is('admin/*') ) { 
+	          return redirect('/admin/login');
+	    }
+		
+        return redirect('/');
+    }
+
 
 
 }
