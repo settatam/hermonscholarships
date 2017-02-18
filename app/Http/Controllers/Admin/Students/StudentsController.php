@@ -118,7 +118,7 @@ class StudentsController extends Controller {
 			   }
 			   $photo->save();   
 			   $student->user_id=\Auth::user()->id;
-			   $student->parent_id=\Auth::user()->id;//tempral solution
+			   $student->parent_id=null;//tempral solution
 			   $student->amount=3000;//tempral solution
 			   $student->date_of_birth='today';//tempral solution
 			   $student->name=$request->student_name;
