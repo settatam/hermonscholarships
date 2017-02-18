@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Auth\Events\Registered;
+
+
 
 class RegisterController extends Controller
 {
@@ -35,9 +38,67 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Request $request)
+    {   
+	
+	     if (  $request->is ('admin/*') ) { 
+	          $this->middleware('checkAccess');
+	      }
+    }
+	
+	
+	/**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm(Request $request)
+    {  
+	    if (  $request->is ('admin/*') ) { 
+	          return view('admin.auth.register');
+	    }
+        return view('auth.register');
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {   
+	
+	  
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+		
+        if (  $request->is ('admin/*') ) {
+			 
+		} else { 
+		     $this->guard()->login($user);
+
+		}
+
+        return $this->registered($request, $user)
+            ?: redirect($this->redirectPath());
+    }
+    
+	
+	/**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function registered(Request $request, $user)
     {
-        $this->middleware('checkAccess');
+        //
+		if (  $request->is('admin/*') ) { 
+	          return redirect()->back()->with('status','Registration was successfull');
+	    }
     }
 
     /**

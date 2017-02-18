@@ -13,7 +13,12 @@ class EducateController extends Controller
 	public function index ( ) {
 		
 		
-	    $students = Student::all();
+	   
+		 $students = \DB::table('students')
+            ->join('photos', 'students.id', '=', 'photos.student_id')
+            ->select('students.*', 'photos.photos')
+            ->Paginate(3);
+		
 
 		return view('Educate.educate',compact('students'));
 	 }

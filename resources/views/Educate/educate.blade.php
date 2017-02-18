@@ -14,20 +14,20 @@ Join Thousands of People Who Are Giving A Child A Future</p>
 
 
     <div class="container">
-    
+   
      <div class="text-center starter-template">
         <h1>Choose a Child to support</h1>
         <p class="lead">100% of your Donation will go into their education</p>
       </div>
       <!-- Example row of columns -->
       <div class="row">
-       @foreach ($students as $details )
+        @foreach ($students as $details )
     <div class="col-sm-6 col-md-4">
     <a href="/view/{{$details->id}}">
 
       <div class="thumbnail">
 
-       <img class="img-responsive" src="images/students/{{$details->pictures}}" alt="...">
+       <img class="img-responsive" src="images/students/{{$details->photos}}" alt="...">
         <div class="caption">
         <h3>{{ $details->name}}  {{ $details->last_name}}</h3>
         <p class="truncate">{{ $details->description}}</p>
@@ -41,6 +41,7 @@ Join Thousands of People Who Are Giving A Child A Future</p>
           <div class="stat raised"><span class="numerical">$27 raised</span></div>
           <div class="stat to_go"><span class="numerical">$455 to go</span></div>
           <div class="clearfix"></div>
+          
         </div>
       </div>
     </div>
@@ -48,7 +49,7 @@ Join Thousands of People Who Are Giving A Child A Future</p>
   </div>
   @endforeach
   
-  
+  {{ $students->links() }}
   
 </div><!-- /.row -->
       
