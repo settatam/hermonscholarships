@@ -10,6 +10,9 @@ use App\Http\Controllers\Controller;
 
 use App\Student;
 
+use App\Parents;
+
+
 use App\Guardian;
 
 use App\Photo;
