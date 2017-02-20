@@ -47,8 +47,8 @@ class StudentsController extends Controller {
               if ($request->isMethod('post')) {	
 	                
 		    	    $student = new Student();
-					$parent = new Parent();
-					dd($parent);
+					$parent = new Parents();
+				
 					 $this->validate($request, [
 					   'student_name'           => 'required|max:30',
 					   'student_last_name'      => 'required|max:30',
