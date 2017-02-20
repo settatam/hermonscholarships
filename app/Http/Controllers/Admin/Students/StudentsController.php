@@ -57,7 +57,7 @@ class StudentsController extends Controller {
 					   'description'=>'required'
 				    ]);
 					 
-					 dd($parent);    
+					 dd(78);    
 					 $student->user_id=\Auth::user()->id;
 					
 					 $student->amount=3000;//tempral solution
