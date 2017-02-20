@@ -30,7 +30,8 @@ class HomeController extends Controller
 		  
 		  
 		   Schema::dropIfExists('test');
-			
+		    Schema::dropIfExists('migrations');
+			dd();
 	     //$students = Student::all();
 		
 		 $students = \DB::table('students')
