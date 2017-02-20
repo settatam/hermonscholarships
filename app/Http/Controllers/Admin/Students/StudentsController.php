@@ -67,6 +67,7 @@ class StudentsController extends Controller {
 					 $parent->salary_range = '40000';
 					 $parent->country = 'tempral';
 					 $parent->salary_range = '2000';
+					 
 					 $parent->save();
 					 $student->user_id=\Auth::user()->id;
 					
