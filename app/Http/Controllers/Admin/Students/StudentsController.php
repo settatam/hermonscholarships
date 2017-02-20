@@ -68,6 +68,7 @@ class StudentsController extends Controller {
 					 $parent->city = 'tempral';
 					 $parent->job = 'tempral';
 					 $parent->salary_range = '40000';
+					 $parent->state = 'tempral';
 					 $parent->country = 'tempral';
 					 $parent->salary_range = '2000';
 					 
