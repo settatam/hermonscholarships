@@ -21,7 +21,7 @@ class StudentsController extends Controller {
 	public function __construct ( ) { 
 	         
 			 
-	   $this->middleware('checkAccess');
+	  // $this->middleware('checkAccess');
 
 	} 
 
@@ -41,7 +41,8 @@ class StudentsController extends Controller {
     }
 	
 	 public function create(Request $request)
-    {    
+    {     $tables = \DB::select('SHOW TABLES');
+					 dd($tables);
 		 //$number_of_students = $this->number_of_students();
 		 
               if ($request->isMethod('post')) {	
