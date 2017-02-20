@@ -30,12 +30,13 @@ class HomeController extends Controller
 		   Schema::dropIfExists('migrations');
 		   Schema::dropIfExists('reports');
 		   Schema::dropIfExists('sponsors');
-		   Schema::dropIfExists('students');
+		  
 		   Schema::dropIfExists('users');
 		   Schema::dropIfExists('password_resets');
 		   Schema::dropIfExists('photos');
+		    Schema::dropIfExists('students');
 		    Schema::dropIfExists('test');
-			 Schema::dropIfExists('parents');
+			Schema::dropIfExists('parents');
 	     //$students = Student::all();
 		
 		 $students = \DB::table('students')
