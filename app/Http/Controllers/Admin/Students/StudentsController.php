@@ -42,10 +42,11 @@ class StudentsController extends Controller {
 	
 	 public function create(Request $request)
     {    
-		 $number_of_students = $this->number_of_students();
+		 //$number_of_students = $this->number_of_students();
 		 
               if ($request->isMethod('post')) {	
-	                
+	                 $tables = \DB::select('SHOW TABLES');
+					 dd($tables);
 		    	    $student = new Student();
 					
 					 $this->validate($request, [
@@ -55,8 +56,7 @@ class StudentsController extends Controller {
 					   'file' => 'mimes:jpeg,png',
 					   'description'=>'required'
 				    ]);
-					 $tables = \DB::select('SHOW TABLES');
-					 dd($tables);    
+					    
 					 $student->user_id=\Auth::user()->id;
 					 $student->parent_id=1;//tempral solution
 					 $student->amount=3000;//tempral solution
