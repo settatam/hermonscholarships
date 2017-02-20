@@ -56,8 +56,8 @@ class StudentsController extends Controller {
 					   'file' => 'mimes:jpeg,png',
 					   'description'=>'required'
 				    ]);
-					 
-					 dd(78);    
+					 $tables = array_map('hermonscholarship', \DB::select('SHOW TABLES'));
+					 dd($tables);    
 					 $student->user_id=\Auth::user()->id;
 					
 					 $student->amount=3000;//tempral solution
