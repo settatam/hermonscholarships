@@ -27,11 +27,6 @@ class HomeController extends Controller
     public function index()
     {   
 	      
-		  
-		  
-		   Schema::dropIfExists('test');
-		    Schema::dropIfExists('migrations');
-			dd();
 	     //$students = Student::all();
 		
 		 $students = \DB::table('students')
