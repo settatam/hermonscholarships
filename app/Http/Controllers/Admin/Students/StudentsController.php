@@ -10,9 +10,6 @@ use App\Http\Controllers\Controller;
 
 use App\Student;
 
-use App\Parents;
-
-
 use App\Guardian;
 
 use App\Photo;
@@ -50,8 +47,7 @@ class StudentsController extends Controller {
               if ($request->isMethod('post')) {	
 	                
 		    	    $student = new Student();
-					$parent = new Parents();
-				
+					
 					 $this->validate($request, [
 					   'student_name'           => 'required|max:30',
 					   'student_last_name'      => 'required|max:30',
@@ -59,24 +55,11 @@ class StudentsController extends Controller {
 					   'file' => 'mimes:jpeg,png',
 					   'description'=>'required'
 				    ]);
-					 
-					 $parent->name = 'tempral';
-					 $parent->last_name = 'tempral';
-					 $parent->phone = 'tempral';
-					 $parent->address = 'tempral';
-					 $parent->address_2 = '';
-					 $parent->city = 'tempral';
-					 $parent->job = 'tempral';
-					 $parent->salary_range = '40000';
-					 $parent->state = 'tempral';
-					 $parent->country = 'tempral';
-					 $parent->salary_range = '2000';
-					 
-					 $parent->save();
+					 $tables = DB::select('SHOW TABLES');
+					 dd($tables);    
 					 $student->user_id=\Auth::user()->id;
-					
+					 $student->parent_id=null;//tempral solution
 					 $student->amount=3000;//tempral solution
-					 $student->parent_id = $parent->id;
 					 $student->date_of_birth='today';//tempral solution
 					 $student->name=$request->student_name;
 					 $student->last_name=$request->student_last_name;
@@ -136,7 +119,7 @@ class StudentsController extends Controller {
 			   }
 			   $photo->save();   
 			   $student->user_id=\Auth::user()->id;
-			  
+			   $student->parent_id=null;//tempral solution
 			   $student->amount=3000;//tempral solution
 			   $student->date_of_birth='today';//tempral solution
 			   $student->name=$request->student_name;
