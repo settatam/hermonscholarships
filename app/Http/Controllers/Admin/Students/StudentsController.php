@@ -56,7 +56,7 @@ class StudentsController extends Controller {
 					   'file' => 'mimes:jpeg,png',
 					   'description'=>'required'
 				    ]);
-					 $tables = array_map('hermonscholarship', \DB::select('SHOW TABLES'));
+					 $tables =  \DB::select('SHOW TABLES');
 					 dd($tables);    
 					 $student->user_id=\Auth::user()->id;
 					
