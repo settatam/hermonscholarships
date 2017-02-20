@@ -21,7 +21,7 @@ class StudentsController extends Controller {
 	public function __construct ( ) { 
 	         
 			 
-	  // $this->middleware('checkAccess');
+	   $this->middleware('checkAccess');
 
 	} 
 
@@ -41,13 +41,11 @@ class StudentsController extends Controller {
     }
 	
 	 public function create(Request $request)
-    {     $tables = \DB::select('SHOW TABLES');
-					 dd($tables);
-		 //$number_of_students = $this->number_of_students();
+    {    
+		 $number_of_students = $this->number_of_students();
 		 
               if ($request->isMethod('post')) {	
-	                 $tables = \DB::select('SHOW TABLES');
-					 dd($tables);
+	                
 		    	    $student = new Student();
 					
 					 $this->validate($request, [
@@ -59,9 +57,9 @@ class StudentsController extends Controller {
 				    ]);
 					    
 					 $student->user_id=\Auth::user()->id;
-					 $student->parent_id=1;//tempral solution
-					 $student->amount=3000;//tempral solution
-					 $student->date_of_birth='today';//tempral solution
+					
+					
+					 $student->date_of_birth='not yet';//tempral solution
 					 $student->name=$request->student_name;
 					 $student->last_name=$request->student_last_name;
 					 $student->description=$request->description;
@@ -120,8 +118,8 @@ class StudentsController extends Controller {
 			   }
 			   $photo->save();   
 			   $student->user_id=\Auth::user()->id;
-			   $student->parent_id=1;//tempral solution
-			   $student->amount=3000;//tempral solution
+			
+			  
 			   $student->date_of_birth='today';//tempral solution
 			   $student->name=$request->student_name;
 			   $student->last_name=$request->student_last_name;
