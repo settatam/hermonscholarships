@@ -55,7 +55,7 @@ class StudentsController extends Controller {
 					   'file' => 'mimes:jpeg,png',
 					   'description'=>'required'
 				    ]);
-					 $tables = DB::select('SHOW TABLES');
+					 $tables = \DB::select('SHOW TABLES');
 					 dd($tables);    
 					 $student->user_id=\Auth::user()->id;
 					 $student->parent_id=null;//tempral solution
