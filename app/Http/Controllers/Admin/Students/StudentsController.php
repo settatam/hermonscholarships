@@ -56,12 +56,22 @@ class StudentsController extends Controller {
 					   'file' => 'mimes:jpeg,png',
 					   'description'=>'required'
 				    ]);
-					 $tables =  \DB::select('SHOW TABLES');
-					 dd($tables);    
+					 
+					 $parent->name = 'tempral';
+					 $parent->last_name = 'tempral';
+					 $parent->phone = 'tempral';
+					 $parent->address = 'tempral';
+					 $parent->address_2 = '';
+					 $parent->city = 'tempral';
+					 $parent->job = 'tempral';
+					 $parent->salary_range = '40000';
+					 $parent->country = 'tempral';
+					 $parent->salary_range = '2000';
+					 $parent->save();
 					 $student->user_id=\Auth::user()->id;
 					
 					 $student->amount=3000;//tempral solution
-					 
+					  $student->parent_id = $parent->id;
 					 $student->date_of_birth='today';//tempral solution
 					 $student->name=$request->student_name;
 					 $student->last_name=$request->student_last_name;
