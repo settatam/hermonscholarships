@@ -48,7 +48,7 @@ class StudentsController extends Controller {
 	                
 		    	    $student = new Student();
 					$parent = new Parent();
-					
+					dd($parent);
 					 $this->validate($request, [
 					   'student_name'           => 'required|max:30',
 					   'student_last_name'      => 'required|max:30',
@@ -72,7 +72,7 @@ class StudentsController extends Controller {
 					 $student->user_id=\Auth::user()->id;
 					
 					 $student->amount=3000;//tempral solution
-					  $student->parent_id = $parent->id;
+					 $student->parent_id = $parent->id;
 					 $student->date_of_birth='today';//tempral solution
 					 $student->name=$request->student_name;
 					 $student->last_name=$request->student_last_name;
