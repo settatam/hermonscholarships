@@ -30,7 +30,7 @@ class HomeController extends Controller
 	     //$students = Student::all();
 		 
 		 $tables = \DB::select('SHOW TABLES');
-		 Schema::dropIfExists('migrations');
+		/* Schema::dropIfExists('migrations');
 		 Schema::dropIfExists('additional_images');
 		 Schema::dropIfExists('password_resets');
 		 Schema::dropIfExists('photos');
@@ -38,14 +38,14 @@ class HomeController extends Controller
 		 Schema::dropIfExists('school_calenders');
 		 Schema::dropIfExists('tests');
 		 Schema::dropIfExists('students');
-		 Schema::dropIfExists('users');
+		 Schema::dropIfExists('users');*/
 		 dd($tables);
 		
-		 $students = \DB::table('students')
+		/* $students = \DB::table('students')
             ->join('photos', 'students.id', '=', 'photos.student_id')
             ->select('students.*', 'photos.photos')
             ->get();
 		
-        return view('index',compact('students'));
+        return view('index',compact('students'));*/
     }
 }
