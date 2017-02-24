@@ -174,8 +174,10 @@ class StudentsController extends Controller {
 					 
 					 //save
 					  $img->save('images/students/'.$image);
+					  
+				      $photo->photos=$image;
 			   } else { 
-				   $photo->photos=  $request->image_from_database;
+				       $photo->photos=  $request->image_from_database;
 
 			   }
 			   $photo->save();   
