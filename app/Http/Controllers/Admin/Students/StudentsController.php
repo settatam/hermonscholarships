@@ -137,8 +137,8 @@ class StudentsController extends Controller {
 	       
 		        
 			  
-		   
-			   if ( $files ) {
+		       $file = $request->file('file');
+			   if ( $file ) {
 				   
 				   //CHECK IF IS AJAX JUST FOR VALIDATING FILE
 		    
