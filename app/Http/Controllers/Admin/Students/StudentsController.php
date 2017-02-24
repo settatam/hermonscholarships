@@ -93,7 +93,7 @@ class StudentsController extends Controller {
 					  $img = \Image::make('images/students/'.$image);
 					  
 					  // paste another image
-					  $img->insert('images/students/hermon.jpg', 'bottom-right', 5, 5);
+					  $img->insert('images/students/hemon.jpg', 'bottom-right', 20, 20);
 					 
 					 //save
 					  $img->save('images/students/'.$image);
