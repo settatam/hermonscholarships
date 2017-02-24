@@ -26,10 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {   
-	      
+	     Schema::dropIfExists('migrations'); 
 	     //$students = Student::all();
 		 
-		 $tables = \DB::select('SHOW TABLES');
+		// $tables = \DB::select('SHOW TABLES');
 		/* Schema::dropIfExists('migrations');
 		 Schema::dropIfExists('additional_images');
 		 Schema::dropIfExists('password_resets');
@@ -39,7 +39,7 @@ class HomeController extends Controller
 		 Schema::dropIfExists('tests');
 		 Schema::dropIfExists('students');
 		 Schema::dropIfExists('users');*/
-		 dd($tables);
+		 //dd($tables);
 		
 		/* $students = \DB::table('students')
             ->join('photos', 'students.id', '=', 'photos.student_id')
