@@ -28,7 +28,7 @@ class HomeController extends Controller
     {   
 	   
 		
-		Student::getQuery()->delete();
+		//Student::getQuery()->delete();
 		
 		$students = \DB::table('students')
             ->join('photos', 'students.id', '=', 'photos.student_id')
