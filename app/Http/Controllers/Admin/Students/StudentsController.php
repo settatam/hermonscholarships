@@ -29,7 +29,7 @@ class StudentsController extends Controller {
 		 $students = \DB::table('students')
             ->join('photos', 'students.id', '=', 'photos.student_id')
             ->select('students.*', 'photos.photos')
-            ->paginate(15);
+            ->get();
 		
         return view('admin.students.index', compact ('students'));
     }
