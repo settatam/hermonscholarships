@@ -26,6 +26,7 @@ class AdditionalImagesController extends Controller
 	 	   $student  = Student::find($student_id);
 
 	     if ($request->isMethod('post')) {	
+		 
 			  $file = $request->file('additional_image');
 					 
 					 
@@ -56,7 +57,7 @@ class AdditionalImagesController extends Controller
 			  $img->insert('images/students/additionalimages/hermon.jpg', 'bottom-right', 10, 10);
 			 
 			 //save
-			  $img->save('images/students/'.$image);
+			  $img->save('images/students/additionalimages/'.$image);
 			  $image = new AdditionalImage(['student_id'=>$student_id,'images'=>$image]);
 			  $image->save();
 			  
