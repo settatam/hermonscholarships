@@ -34,8 +34,8 @@ class CalenderController extends Controller {
 	   if ($request->isMethod('post')) {
 		   
 		     $this->validate($request, [
-			   'title'        => 'required|min:3|unique:school_calenders',
-			   'description'   => 'required|max:300|unique:school_calenders',
+			   'title'        => 'required|min:3',
+			   'description'   => 'required|max:300',
 			   
 			 ]);
 			 $calender               = new SchoolCalender;
