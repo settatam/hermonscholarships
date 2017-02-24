@@ -1,7 +1,7 @@
-<?php
+<?php 
 
 namespace App\Http\Controllers\Admin\Students;
-
+ini_set('memory_limit', '-1');
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
