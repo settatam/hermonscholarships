@@ -14,12 +14,14 @@ class  ViewController extends Controller
 		
 		$student  = Student::find($id);
 		
-		$reports = Student::find($id)->reports;
+		$additional_images  = Student::find($id)->additional_images;
+				
+	    $photo   =   Student::find($id)->photo;
 		
-	    $photo   = Student::find($id)->photo;
+		$calender =  Student::find($id)->calender;
 
-		
-		return view('view.index',compact('student','reports','photo'));
+
+		return view('view.index',compact('calender','additional_images','student','photo'));
 	}
 
     

@@ -5,14 +5,9 @@ namespace App\Http\Controllers\Admin\Students;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
-
-
-
 use App\Student;
-
-use App\Guardian;
-
 use App\Photo;
+use App\AdditionalImage;
 
 
 class StudentsController extends Controller {
@@ -30,14 +25,13 @@ class StudentsController extends Controller {
    public function index()
     {    
 	
-	    $number_of_students = $this->number_of_students();
 		
 		 $students = \DB::table('students')
             ->join('photos', 'students.id', '=', 'photos.student_id')
             ->select('students.*', 'photos.photos')
             ->paginate(15);
 		
-        return view('admin.students.index', compact ('number_of_students','students'));
+        return view('admin.students.index', compact ('students'));
     }
 	
 	 public function create(Request $request)
@@ -48,33 +42,69 @@ class StudentsController extends Controller {
 	                
 		    	    $student = new Student();
 					
+					 //CHECK IF IS AJAX JUST FOR VALIDATING FILE
+		    
+					 $file = $request->file('file');
+					 
+					 
+					 // Build the input for validation
+					  $fileArray = array('image' => $file);
+				  
+					  // Tell the validator that this file should be an image
+					  $rules = array(
+						'image' => "mimes:jpeg,jpg,png,gif|required|max:3000"
+					  );
+				  
+					  // Now pass the input and rules into the validator
+					  $validator = \Validator::make($fileArray, $rules);
+					 
+					   if ($validator->fails()) {
+						  return \Redirect::back()
+										  ->withErrors($validator)
+										  ->withInput();
+					   }
+				  
+					 
+					 
+					
 					 $this->validate($request, [
-					   'student_name'           => 'required|max:30',
-					   'student_last_name'      => 'required|max:30',
+					   'student_name'        => 'required|max:30',
+					   'student_last_name'   => 'required|max:30',
 					   'grade'=>'required',
-					   'file' => 'mimes:jpeg,png',
+					   'date_of_birth'=>'required',
 					   'description'=>'required'
 				    ]);
 					    
 					 $student->user_id=\Auth::user()->id;
-					
-					
-					 $student->date_of_birth='not yet';//tempral solution
+					 $student->date_of_birth=$request->date_of_birth;//tempral solution
 					 $student->name=$request->student_name;
+					 $student->timeframe = $request->timeframe;
 					 $student->last_name=$request->student_last_name;
 					 $student->description=$request->description;
 					 $student->grade=$request->grade;
 					 $student->save();
 					                     
-					 $files = $request->file('file');
+					 
+					  $image = uniqid().'.'.$file->getClientOriginalExtension();
 
-				     $files->move('images/students', $files->getClientOriginalName());
-					
-					 $photo = new Photo(['student_id'=>$student->id,'photos'=>$files->getClientOriginalName()]);
+				      $file->move('images/students',  $image);
 					 
-					 $photo->save();
+					 // create new Intervention Image
+					  $img = \Image::make('images/students/'.$image);
+					  
+					  // paste another image
+					  $img->insert('images/students/hermon.jpg', 'bottom-right', 10, 10);
 					 
-				    return redirect('/admin/students')->with('status', 'Students Details Created');//reject if we have only on addres	  
+					 //save
+					  $img->save('images/students/'.$image);
+					 
+					  $photo = new Photo(['student_id'=>$student->id,'photos'=>$image]);
+					 
+					  $photo->save();
+					 
+					 
+					 
+				    return redirect('/admin/students')->with('status', 'Students Details Created');	  
 			   }
 			    
 				 
@@ -100,28 +130,59 @@ class StudentsController extends Controller {
 		
 		
 		$student  = Student::find($student_id);
-		$guardian = Guardian::find($student->parent_id);
 		$number_of_students = $this->number_of_students();
 	    $photo   = Student::find($student_id)->photo;
 
 	    if ($request->isMethod('post')) {	
 	       
 		        
-			   $files = $request->file('file');
+			  
 		   
-			   if ( $files ) {  
-				  $photo->photos=$files->getClientOriginalName();
-				  $files->move('images/students', $files->getClientOriginalName());
+			   if ( $files ) {
+				   
+				   //CHECK IF IS AJAX JUST FOR VALIDATING FILE
+		    
+					 $file = $request->file('file');
+					 
+					 
+					 // Build the input for validation
+					  $fileArray = array('image' => $file);
+				  
+					  // Tell the validator that this file should be an image
+					  $rules = array(
+						'image' => "mimes:jpeg,jpg,png,gif|required|max:3000"
+					  );
+				  
+					  // Now pass the input and rules into the validator
+					  $validator = \Validator::make($fileArray, $rules);
+					 
+					   if ($validator->fails()) {
+						  return \Redirect::back()
+										  ->withErrors($validator)
+										  ->withInput();
+					   }
+				    
+				      $image = uniqid().'.'.$file->getClientOriginalExtension();
+
+				      $file->move('images/students',  $image);
+					 
+					 // create new Intervention Image
+					  $img = \Image::make('images/students/'.$image);
+					  
+					  // paste another image
+					  $img->insert('images/students/hermon.jpg', 'bottom-right', 10, 10);
+					 
+					 //save
+					  $img->save('images/students/'.$image);
 			   } else { 
 				   $photo->photos=  $request->image_from_database;
 
 			   }
 			   $photo->save();   
 			   $student->user_id=\Auth::user()->id;
-			
-			  
-			   $student->date_of_birth='today';//tempral solution
+			   $student->date_of_birth=$request->date_of_birth;//tempral solution
 			   $student->name=$request->student_name;
+			   $student->timeframe = $request->timeframe;
 			   $student->last_name=$request->student_last_name;
 			   $student->description=$request->description;
 			   $student->grade=$request->grade;
@@ -144,15 +205,9 @@ class StudentsController extends Controller {
 	public  function remove ( $student_id) { 
 	
 	        $path = base_path().'/public/images/students';
-			
-		
 		    $images_to_delete = Student::find( $student_id);
 		   
-		   
-		     
-		     \File::Delete($path.'/'.$images_to_delete->pictures);
-			 
-		  
+		   \File::Delete($path.'/'.$images_to_delete->pictures);
 	       Student::destroy($student_id);
 		   return redirect()->back()->with('status', 'Students Details rEMOVED ');//reject if we have only on address
 

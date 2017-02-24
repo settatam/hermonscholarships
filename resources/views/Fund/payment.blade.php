@@ -9,7 +9,7 @@
     <div class="container">
     
      <div class="text-center starter-template">
-        <h1>You're joining the Universal Fund with a recurring ${{$amount}} monthly donation.</h1>
+        <h1>100% of your Donation will go into their education</h1>
       </div>
       <!-- Example row of columns -->
       <div class="row">
@@ -17,7 +17,7 @@
         <div class="col-sm-12 col-md-6">
             <div class="thumbnail">
       
-             <img src="images/image1.jpg" alt="...">
+             <img src="/images/students/{{$photo->photos }}" alt="...">
               
              
      
@@ -86,7 +86,7 @@
       </div>
       <div class="form-group">
         <div class="col-sm-offset-3 col-sm-9">
-          <button type="button" class="btn btn-success">Pay Now</button>
+          <button type="button" class="btn btn-success">Sponsor</button>
         </div>
       </div>
     </fieldset>

@@ -59,4 +59,17 @@ html,body {
   text-overflow: ellipsis;
 }
 
+.thumbnails {
+    margin-top: 20px;
+	margin-right: -2px;
+}
+
+.thumbnails img{
+	height: 70px;
+	width: 100px
+   
+}
+
+
+
 

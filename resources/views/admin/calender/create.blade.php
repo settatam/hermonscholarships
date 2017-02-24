@@ -17,7 +17,7 @@
 
           <div class="col-md-8">
           <div class="panel panel-primary">
-            <h2>Report For  {{ $student->name }}  {{ $student->last_name}}</h2>
+            <h3>Academic  Year Calender  For  {{ $student->fullname()}}</h3>
             @include('layouts.success')
                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                 {{csrf_field()}}
@@ -27,10 +27,8 @@
             <label class="col-sm-2 control-label" for="input-title">Title</label>
             <div class="col-sm-10">
               <input type="text"  required="required" name="title" value="" placeholder="Tilte" id="input-tile" class="form-control" />
-                          </div>
+            </div>
           </div>
-        
-          
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-postcode">Description</label>
             <div class="col-sm-10">

@@ -15,7 +15,7 @@
        
        
 
-          <div class="col-md-8">
+          <div class="col-md-9">
           <div class="panel panel-primary">
             <h2>Students</h2>
               @include('layouts.success')
@@ -31,17 +31,18 @@
                   <tbody>
                     @foreach ($students as $details )
                     <tr>
-                     <td> <img width="100" height="100" src="/images/students/{{$details->photos }}"  /></td>
+                     <td> <img width="100" height="100" src="/images/students/{{$details->photos}}"  /></td>
                       <td> {{ $details->name }}  {{ $details->last_name}}</td>
                       <td>{{ $details->grade}}</td>
                       
                       <td>
-                          <div class="btn-group" role="group" aria-label="...">
+                         
                             <a href="/admin/view/students/{{ $details->id}}" class="btn btn-default">View</a>&nbsp;
                             <a href="/admin/edit/students/{{ $details->id}}" class="btn btn-default">Edit</a>&nbsp;
                             <a href="/admin/delete/students/{{ $details->id}}" class="btn btn-default">Delete</a>
-                             <a href="/admin/reports/students/{{ $details->id}}" class="btn btn-default">Add Report</a>
-                          </div>
+                            <a href="/admin/calender/students/{{ $details->id}}" class="btn btn-default">Add Calender</a>
+                            <a href="/admin/students/add/image/{{ $details->id}}" class="btn btn-default">Additional Image</a>
+                          
                      </td>
                     </tr>
                     @endforeach

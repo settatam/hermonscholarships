@@ -17,7 +17,7 @@ class EducateController extends Controller
 		 $students = \DB::table('students')
             ->join('photos', 'students.id', '=', 'photos.student_id')
             ->select('students.*', 'photos.photos')
-            ->Paginate(3);
+            ->get();
 		
 
 		return view('Educate.educate',compact('students'));

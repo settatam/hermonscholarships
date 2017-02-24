@@ -28,6 +28,9 @@ class HomeController extends Controller
     {   
 	      
 	     //$students = Student::all();
+		 
+		 $tables = \DB::select('SHOW TABLES');
+		 dd($tables);
 		
 		 $students = \DB::table('students')
             ->join('photos', 'students.id', '=', 'photos.student_id')

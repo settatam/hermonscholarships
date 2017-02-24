@@ -20,6 +20,7 @@ class CreateTableStudents extends Migration
 			$table->string('last_name');
 			$table->text('description');
 			$table->string('grade');
+			$table->string('timeframe');
 			$table->string('date_of_birth')->nullable();
             $table->timestamps();
         });

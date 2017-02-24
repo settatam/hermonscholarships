@@ -9,129 +9,88 @@
     <div class="container">
     
      <div class=" starter-template">
-        <h1>{{ $student->name}}  {{ $student->last_name}}</h1>
+        <h1></h1>
       </div>
       <!-- Example row of columns -->
       <div class="row">
      
         <div class="col-md-7">
         
-         <img  src="/images/students/{{$photo->photos }}"  class="img-rounded" alt="...">
-       
+         <img  src="/images/students/{{$photo->photos }}"  class="img-rounded" alt="..."
           <br/>
+       <div class="row">
+          @if( count($additional_images) )
+             <div  class="col-md-2 thumbnails clearfix">
+                <a href="#" class=""><img  class="img-responsive" src="/images/students/{{$photo->photos}}" alt="" title=""></a>
+             </div>
+            @foreach ($additional_images as $details )
+            <div  class="col-md-2 thumbnails clearfix">
+                <a href="#" class=""><img class="img-responsive"  src="/images/students/additionalimages/{{$details->images}}" alt="" title=""></a>
+             </div>
+            @endforeach
+          @endif
+          </div>
+                                                                                                                                                                         
+      
+                                                                                                                                                                       
+        
           <p class="margin-top-40">
           
-          <p>{{$student->created_at}}</p>
-         {{$student->description}}
+          <p>{{--$student->created_at--}}</p>
+            {{$student->description}}
           </p>
         <hr/>
         
         
        <div class="media">
-               <h1> Students Timeline</h1>
-
-            <div class="media-left media-middle">
-              <a href="#">
-                <img class="media-object" src="..." alt="...">
-              </a>
+               <h3 class="">{{date('Y')}} Academic Calender  For {{$student->fullname()}}</h3>
+                <hr/>
+                  <div class="">
+                  @if(count($calender))
+                    @foreach($calender as $details)
+                   <h4>{{$details->title}}</h4> 
+                   <p>{{$details->description}}</p>
+                   <hr/> 
+                    @endforeach
+                    
+                   @else
+                   
+                    <h4>No Calender Yet</h4> 
+                  @endif
+                  </div>
+            
             </div>
-            @if (count($reports)  )  
-             
-
-                <div class="media-body">
-                   @foreach($reports as $details )
-                   <p>{{ $details->created_at}}</p>
-                 <h4 class="media-heading">{{ $details->title}}</h4>
-                 
-                 <p>{{ $details->description}}</p>
-                    @endforeach  
-                </div>
-             
-             @else
-               No reports Yes
-             @endif
-              </div>
         </div>
   
         <div class="col-md-5">
         
-            <form class="form-horizontal" role="form">
-    <fieldset>
-      <legend>Donate</legend>
-      <div class="form-group">
-        <label class="col-sm-3 control-label" for="card-holder-name">Name on Card</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" name="card-holder-name" id="card-holder-name" placeholder="Card Holder's Name">
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-3 control-label" for="card-number">Card Number</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" name="card-number" id="card-number" placeholder="Debit/Credit Card Number">
-        </div>
-      </div>
-       <div class="form-group">
-        <label class="col-sm-3 control-label" for="expiry-month">Expiration Date</label>
-        <div class="col-sm-9">
-          <div class="row">
-            <div class="col-xs-3">
-              <select class="form-control col-sm-2" name="expiry-month" id="expiry-month">
-                <option>Month</option>
-                <option value="01">Jan (01)</option>
-                <option value="02">Feb (02)</option>
-                <option value="03">Mar (03)</option>
-                <option value="04">Apr (04)</option>
-                 <option value="05">May (05)</option>
-                <option value="06">June (06)</option>
-                <option value="07">July (07)</option>
-                <option value="08">Aug (08)</option>
-                <option value="09">Sep (09)</option>
-                <option value="10">Oct (10)</option>
-                <option value="11">Nov (11)</option>
-                <option value="12">Dec (12)</option>
-              </select>
-            </div>
-            <div class="col-xs-3">
-              <select class="form-control" name="expiry-year">
-                <option value="13">2013</option>
-                <option value="14">2014</option>
-                <option value="15">2015</option>
-                <option value="16">2016</option>
-                <option value="17">2017</option>
-                <option value="18">2018</option>
-                <option value="19">2019</option>
-                <option value="20">2020</option>
-                <option value="21">2021</option>
-                <option value="22">2022</option>
-                <option value="23">2023</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
-       <div class="form-group">
-        <label class="col-sm-3 control-label" for="cvv">Card CVV</label>
-        <div class="col-sm-3">
-          <input type="text" class="form-control" name="cvv" id="cvv" placeholder="Security Code">
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-3 col-sm-9">
-          <button type="button" class="btn btn-success">Pay Now</button>
-        </div>
-      </div>
-    </fieldset>
-  </form>
+           
+            <ul class="client-details">
+                <li>
+                    <p><span>Name:</span>   {{ $student->fullname()}}</p>
+                </li>
+                <li>
+                    <p><span>Age :</span>  {{ $student->date_of_birth}}</p>
+                </li>
+                <li>
+                    <p><span>Class :</span>  {{ $student->grade}}</p>
+                </li>
+                <li>
+                    <p><span>Time To Complete school :</span> {{ $student->timeframe}}</p>
+                </li>
+                
+                
+                                                                                                                                                           
+            </ul>
+         
         
         
         
           <div class="btn-group btn-group-justified" role="group" aria-label="...">
           <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">Facebook share</button>
+            <button type="button" onclick="location.href='/payment/{{$student->id}}'" class="btn btn-default btn-group">Sponsor</button>
           </div>
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">Tweet</button>
-          </div>
+          
           
          </div>
         </div>

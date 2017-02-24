@@ -31,25 +31,15 @@ Join Thousands of People Who Are Giving A Child A Future</p>
         <div class="caption">
         <h3>{{ $details->name}}  {{ $details->last_name}}</h3>
         <p class="truncate">{{ $details->description}}</p>
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-            60%
-          </div>
-       </div>
-        <div class="funding_stats">
-          <div class="stat funded"><span class="numerical">37% funded</span></div>
-          <div class="stat raised"><span class="numerical">$27 raised</span></div>
-          <div class="stat to_go"><span class="numerical">$455 to go</span></div>
-          <div class="clearfix"></div>
-          
-        </div>
+        
+        
       </div>
     </div>
     </a>
   </div>
   @endforeach
   
-  {{ $students->links() }}
+  {{-- $students->links() --}}
   
 </div><!-- /.row -->
       

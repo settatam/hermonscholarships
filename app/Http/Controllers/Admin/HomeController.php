@@ -19,7 +19,7 @@ class HomeController extends Controller {
 
    public function index()
     {
-	    $number_of_students = Student::count();
-        return view('admin.index',compact('number_of_students'));
+	   
+        return view('admin.index');
     }
 }
