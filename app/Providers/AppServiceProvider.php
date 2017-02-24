@@ -18,10 +18,10 @@ class AppServiceProvider extends ServiceProvider
     {
         //
 		
-		/* $number_of_students = Student::count();
+		 $number_of_students = Student::count();
 		 $number_of_users = User::count();
 		 \View::share('number_of_users', $number_of_users);				  
-	    \View::share('number_of_students', $number_of_students);*/
+	    \View::share('number_of_students', $number_of_students);
 		
     }
 
