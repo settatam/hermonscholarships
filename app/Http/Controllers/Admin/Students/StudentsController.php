@@ -36,17 +36,15 @@ class StudentsController extends Controller {
 	
 	 public function create(Request $request)
     {    
-		 $number_of_students = $this->number_of_students();
+		 $age  = $this->age();
 		 
               if ($request->isMethod('post')) {	
 	                
 		    	    $student = new Student();
 					
 					 //CHECK IF IS AJAX JUST FOR VALIDATING FILE
-		    
 					 $file = $request->file('file');
-					 
-					 
+				
 					 // Build the input for validation
 					  $fileArray = array('image' => $file);
 				  
@@ -108,7 +106,7 @@ class StudentsController extends Controller {
 			   }
 			    
 				 
-        return view('admin.students.create',compact('number_of_students'));
+        return view('admin.students.create',compact('age'));
     }
 	
 		
@@ -120,9 +118,8 @@ class StudentsController extends Controller {
 		  
 		   $reports = Student::find($student_id)->reports;
 		 
-		   $number_of_students = $this->number_of_students();
 		 
-		   return view('admin.students.students',compact('number_of_students','student','reports','photo'));
+		   return view('admin.students.students',compact('student','reports','photo'));
 
 	} 
 
@@ -130,9 +127,8 @@ class StudentsController extends Controller {
 		
 		
 		$student  = Student::find($student_id);
-		$number_of_students = $this->number_of_students();
 	    $photo   = Student::find($student_id)->photo;
-
+        $age  = $this->age();
 	    if ($request->isMethod('post')) {	
 	       
 		        
@@ -196,12 +192,24 @@ class StudentsController extends Controller {
 				 	
 		}
 	   
-	    return view('admin.students.edit',compact('number_of_students','student','guardian','student_id','photo'));
+	    return view('admin.students.edit',compact('age','student','guardian','student_id','photo'));
  
 	}
-	public  function number_of_students ( ) { 
-	   $count = Student::count();
-	   return count (  $count  )  ? $count : '';
+	
+	public function age(){
+		
+	  return [
+		 '1 year',
+		 '2 years',
+		 '3 years',
+		 '4 years',
+		 '5 years',
+		 '6 years',
+		 '7 years',
+		 '8 years',
+		 '9 years',
+		 '10 years',
+	  ];	
 	}
 	
 	public  function remove ( $student_id) { 

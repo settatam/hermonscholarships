@@ -55,12 +55,20 @@
             </div>
             
             <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-date">Date Of Birth</label>
-            <div class="col-sm-10">
-              <input type="date" name="date_of_birth" required="required" value="{{  !empty($student->date_of_birth) ?  $student->date_of_birth : ''    }}" placeholder="Date of Birth" id="input-date" class="form-control" />
-                          </div>
-          </div>
-          
+            <label class="col-sm-2 control-label" for="input-lastname">Date Of Birth</label>
+              <div class="col-sm-10">
+               <select style="width:100%;" required="required"  class="form-control" name="date_of_birth"  tabindex="1" >
+                  <option value="">Choose</option>
+                  @foreach($age as $details )
+                    @if ( $details == trim($student->date_of_birth))
+                      <option selected="selected"   value="{{$details}}">{{$details}}</option>
+                    @else
+                      <option   value="{{$details}}">{{$details}}</option>
+                    @endif
+                  @endforeach
+              </select>
+              </div>
+            </div>
            <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-time">Time Frame</label>
             <div class="col-sm-10">

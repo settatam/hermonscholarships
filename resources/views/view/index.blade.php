@@ -14,7 +14,7 @@
       <!-- Example row of columns -->
       <div class="row">
      
-        <div class="col-md-7">
+        <div class="col-md-6">
         
          <img  src="/images/students/{{$photo->photos }}"  class="img-rounded" alt="..."
           <br/>
@@ -62,7 +62,7 @@
             </div>
         </div>
   
-        <div class="col-md-5">
+        <div class="col-md-6">
         
            
             <ul class="client-details">
@@ -84,10 +84,31 @@
             </ul>
          
         
+        <div><h5>Enter the number of months you want to sponsor {{ $student->fullname()}} .</h5>
+          <p>$12 dollars per Month</p>
+        </div>
+       <form action="" method="post" class="form-horizontal">
+              <div class="form-group">
+        <label class="col-sm-3 control-label" for="expiry-month"> Number of Months</label>
+        <div class="col-sm-9">
+          <div class="row">
+            <div class="col-xs-3">
+              <input type="text" name="no_of_months" required="required" value="" placeholder="" class="form-control" />
+            </div>
         
-        
+            <div class="col-xs-3">
+               <span> /</span>
+              Months. 
+            </div>
+          </div>
+        </div>
+      </div>
+           
+           </form>
+
           <div class="btn-group btn-group-justified" role="group" aria-label="...">
           <div class="btn-group" role="group">
+            
             <button type="button" onclick="location.href='/payment/{{$student->id}}'" class="btn btn-default btn-group">Sponsor</button>
           </div>
           

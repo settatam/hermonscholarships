@@ -39,18 +39,26 @@
                           </div>
           </div>
           
+         
+          
           <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-date">Date Of Birth</label>
-            <div class="col-sm-10">
-              <input type="date" name="date_of_birth" required="required" value="" placeholder="Date of Birth" id="input-date" class="form-control" />
-                          </div>
-          </div>
+            <label class="col-sm-2 control-label" for="input-lastname">Date Of Birth</label>
+              <div class="col-sm-10">
+               <select style="width:100%;" required="required"  class="form-control" name="date_of_birth"  tabindex="1" >
+                  <option value="">Choose</option>
+                  @foreach($age as $details )
+                      <option   value="{{$details}}">{{$details}}</option>
+                  @endforeach
+                    
+              </select>
+              </div>
+            </div>
           
            <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-time">Time Frame</label>
             <div class="col-sm-10">
               <input type="text" name="timeframe" required="required" value="" placeholder="Months ,Years,Days to finish school" id="input-time" class="form-control" />
-                          </div>
+            </div>
           </div>
            <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-lastname">Grade</label>
