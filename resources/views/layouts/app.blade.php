@@ -87,8 +87,33 @@
         @yield('content')
 
          <!-- FOOTER -->
-
+     
     </div>
+    
+    
+     <footer class="welcome-footer">
+
+      <div class="container">
+
+         <div class="footer-links">
+
+            <a href="#">Terms of Use</a> | 
+
+            <a href="#">Privacy Policy</a> | 
+
+            <a href="#">Contact</a> | 
+
+            <a href="#">About</a>
+
+          </div>   
+
+          Copyright &copy; {{config('app.name')}} - All rights reserved       
+
+       
+
+      </div>
+
+    </footer>
 
     <!-- Scripts -->
     <script src="https://use.typekit.net/cej4reu.js"></script>

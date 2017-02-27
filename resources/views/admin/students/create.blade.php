@@ -47,8 +47,8 @@
               <div class="col-sm-10">
           <div class="row">
             <div class="col-xs-3">
-              <select class="form-control col-sm-2" name="month" id="month">
-                <option>Month</option>
+              <select class="form-control col-sm-2" name="year" id="year">
+                <option>Year</option>
                  @for($i=date('Y'); $i>1899; $i--) 
                     <option value="{{$i}}">{{$i}}</option>
                   @endfor
@@ -57,57 +57,19 @@
             <div class="col-xs-3">
               <select class="form-control" name="month">
                 <option>month</option>
-                 <option>jan</option>
-                 <option>feb</option>
-                 <option>mar</option>
-                 <option>apr</option>
-                 <option>may</option>
-                 <option>june</option>
-                 <option>july</option>
-                 <option>Aug</option>
-                 <option>Sep</option>
-                 <option>Oct</option>
-                 <option>Nov</option>
-                 <option>Dec</option>
                
+                 @foreach($month as $key=>$value)
+                    <option value="{{$key}}">{{$value}}</option>
+                 @endforeach
               </select>
             </div>
             
             <div class="col-xs-3">
               <select class="form-control" name="day">
-               <option>date</option>
-               <option>1</option>
-               <option>2</option>
-               <option>3</option>
-               <option>4</option>
-               <option>5</option>
-               <option>6</option>
-               <option>7</option>
-               <option>8</option>
-               <option>9</option>
-               <option>10</option>
-               <option>11</option>
-               <option>12</option>
-               <option>13</option>
-               <option>14</option>
-               <option>15</option>
-               <option>16</option>
-               <option>17</option>
-               <option>18</option>
-               <option>19</option>
-               <option>20</option>
-               <option>21</option>
-               <option>22</option>
-               <option>23</option>
-               <option>24</option>
-               <option>25</option>
-               <option>26</option>
-               <option>27</option>
-               <option>28</option>
-               <option>29</option>
-               <option>30</option>
-               <option>31</option>
-               
+               <option>day</option>
+                  @for($i=1; $i<32; $i++)
+                   <option value="{{$i}}">{{$i}}</option>
+                  @endfor
               </select>
             </div>
           </div>

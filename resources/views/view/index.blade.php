@@ -70,7 +70,7 @@
                     <p><span>Name:</span>   {{ $student->fullname()}}</p>
                 </li>
                 <li>
-                    <p><span>Age :</span>  {{ $student->date_of_birth}}</p>
+                    <p><span>Age :</span>  {{ $student->formatDate()}}</p>
                 </li>
                 <li>
                     <p><span>Class :</span>  {{ $student->grade}}</p>

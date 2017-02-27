@@ -36,13 +36,11 @@
                       <td>{{ $details->grade}}</td>
                       
                       <td>
-                         
                             <a href="/admin/view/students/{{ $details->id}}" class="btn btn-default">View</a>&nbsp;
                             <a href="/admin/edit/students/{{ $details->id}}" class="btn btn-default">Edit</a>&nbsp;
                             <a href="/admin/delete/students/{{ $details->id}}" class="btn btn-default">Delete</a>
                             <a href="/admin/calender/students/{{ $details->id}}" class="btn btn-default">Add Calender</a>
                             <a href="/admin/students/add/image/{{ $details->id}}" class="btn btn-default">Additional Image</a>
-                          
                      </td>
                     </tr>
                     @endforeach

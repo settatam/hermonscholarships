@@ -36,8 +36,13 @@ class StudentsController extends Controller {
 	
 	 public function create(Request $request)
     {    
-		 $age  = $this->age();
-              if ($request->isMethod('post')) {	
+		  $month    = $this->month();
+		    // $dat = 2006109;
+		    // $dt = \Carbon\Carbon::createFromFormat('Y-m-d H', '2004-08-13 10:57:44'); 
+			      //   dd($dt->toDateTimeString());  // 
+		  
+              if ($request->isMethod('post')) {
+				  	
 		    	      $student = new Student();
 					 //CHECK IF IS AJAX JUST FOR VALIDATING FILE
 					  $file = $request->file('file');
@@ -49,55 +54,48 @@ class StudentsController extends Controller {
 					  );
 					  // Now pass the input and rules into the validator
 					  $validator = \Validator::make($fileArray, $rules);
-					 
 					   if ($validator->fails()) {
 						  return \Redirect::back()
 										  ->withErrors($validator)
 										  ->withInput();
 					   }
-					
 					 $this->validate($request, [
-					   'student_name'        => 'required|max:30',
-					   'student_last_name'   => 'required|max:30',
+					   'student_name'        => 'required|max:70',
+					   'student_last_name'   => 'required|max:70',
 					   'grade'=>'required',
-					   'date_of_birth'=>'required',
+					   'year'=>'required',
+					   'month'=>'required',
+					   'day'=>'required',
 					   'description'=>'required'
 				    ]);
-					    
+					 $dob = $request->year.','.$request->month.','.$request->day;  
+					 //dd($dob);
 					 $student->user_id=\Auth::user()->id;
-					 $student->date_of_birth=$request->date_of_birth;//tempral solution
+					 $student->date_of_birth=$dob;//tempral solution
 					 $student->name=$request->student_name;
 					 $student->timeframe = 'co time';
 					 $student->last_name=$request->student_last_name;
 					 $student->description=$request->description;
 					 $student->grade=$request->grade;
 					 $student->save();
-					                     
-					 
-					  $image = uniqid().'.'.$file->getClientOriginalExtension();
-
-				      $file->move('images/students',  $image);
-					 
-					 // create new Intervention Image
-					  //$img = \Image::make('images/students/'.$image);
-					  
-					  // paste another image
-					  //$img->insert('images/students/hemon.jpg', 'bottom-right', 30, 30);
-					 
-					 //save
-					  //$img->save('images/students/'.$image);
-					 
-					  $photo = new Photo(['student_id'=>$student->id,'photos'=>$image]);
-					 
-					  $photo->save();
-					 
-					 
-					 
-				    return redirect('/admin/students')->with('status', 'Students Details Created');	  
+					 $image = uniqid().'.'.$file->getClientOriginalExtension();
+					 $file->move('images/students',  $image);
+				   
+				   // create new Intervention Image
+					//$img = \Image::make('images/students/'.$image);
+					
+					// paste another image
+					//$img->insert('images/students/hemon.jpg', 'bottom-right', 30, 30);
+				   
+				   //save
+					//$img->save('images/students/'.$image);
+				   
+					$photo = new Photo(['student_id'=>$student->id,'photos'=>$image]);
+					$photo->save();
+					return redirect('/admin/students')->with('status', 'Students Details Created');	  
 			   }
-			    
-				 
-        return view('admin.students.create',compact('age'));
+			    	 
+        return view('admin.students.create',compact('month'));
     }
 	
 		
@@ -119,38 +117,24 @@ class StudentsController extends Controller {
 		
 		$student  = Student::find($student_id);
 	    $photo   = Student::find($student_id)->photo;
-        $age  = $this->age();
+        $month    = $this->month();
 	    if ($request->isMethod('post')) {	
-	       
-		        
-			  
 		       $file = $request->file('file');
-			   
 			   if ( $file ) {
-				   
-				   //CHECK IF IS AJAX JUST FOR VALIDATING FILE
-		    
-					 
-					 
 					 // Build the input for validation
 					  $fileArray = array('image' => $file);
-				  
 					  // Tell the validator that this file should be an image
 					  $rules = array(
 						'image' => "mimes:jpeg,jpg,png,gif|required|max:3000"
 					  );
-				  
 					  // Now pass the input and rules into the validator
 					  $validator = \Validator::make($fileArray, $rules);
-					 
 					   if ($validator->fails()) {
 						  return \Redirect::back()
 										  ->withErrors($validator)
 										  ->withInput();
 					   }
-				    
 				      $image = uniqid().'.'.$file->getClientOriginalExtension();
-
 				      $file->move('images/students',  $image);
 					 
 					 // create new Intervention Image
@@ -165,11 +149,12 @@ class StudentsController extends Controller {
 				      $photo->photos=$image;
 			   } else { 
 				       $photo->photos=  $request->image_from_database;
-
 			   }
 			   $photo->save();   
+			   $dob = $request->year.','.$request->month.','.$request->day;  
+					 //dd($dob);
 			   $student->user_id=\Auth::user()->id;
-			   $student->date_of_birth=$request->date_of_birth;//tempral solution
+			   $student->date_of_birth=$dob;
 			   $student->name=$request->student_name;
 			   $student->timeframe = 'no time';
 			   $student->last_name=$request->student_last_name;
@@ -182,24 +167,27 @@ class StudentsController extends Controller {
 	 
 				 	
 		}
-	   
-	    return view('admin.students.edit',compact('age','student','guardian','student_id','photo'));
+	    $dob = explode(',',$student->date_of_birth);
+	    return view('admin.students.edit',compact('dob','month','student','student_id','photo'));
  
 	}
 	
-	public function age(){
+	public function month(){
 		
 	  return [
-		 '1 year',
-		 '2 years',
-		 '3 years',
-		 '4 years',
-		 '5 years',
-		 '6 years',
-		 '7 years',
-		 '8 years',
-		 '9 years',
-		 '10 years',
+		 1=>'jan',
+		 2=>'feb',
+		 3=>'mar',
+		 4=>'apr',
+		 5=>'may',
+		 6=>'june',
+		 7=>'july',
+		 8=>'aug',
+		 9=>'sep',
+		 10=>'oct',
+		 11=>'nov',
+		 12=>'dec',
+		 
 	  ];	
 	}
 	

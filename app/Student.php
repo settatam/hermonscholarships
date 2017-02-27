@@ -25,4 +25,13 @@ class Student extends Model
 	public function fullname() { 
 	  return ucfirst($this->name) . ' '.ucfirst($this->last_name); 
 	}
+	
+	public function formatDate(  ) { 
+	  $d = explode(',',$this->date_of_birth);
+	  $dob =   \Carbon\Carbon::createFromDate($d[0],$d[1],$d[2]);
+	  $dob = str_replace('ago',' ',$dob->diffForHumans());
+	  return $dob;
+	}
+	
+	
 }

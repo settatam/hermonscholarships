@@ -57,24 +57,55 @@
             <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-lastname">Date Of Birth</label>
               <div class="col-sm-10">
-               <select style="width:100%;" required="required"  class="form-control" name="date_of_birth"  tabindex="1" >
-                  <option value="">Choose</option>
-                  @foreach($age as $details )
-                    @if ( $details == trim($student->date_of_birth))
-                      <option selected="selected"   value="{{$details}}">{{$details}}</option>
-                    @else
-                      <option   value="{{$details}}">{{$details}}</option>
-                    @endif
-                  @endforeach
+          <div class="row">
+            <div class="col-xs-3">
+              <select class="form-control col-sm-2" name="year" id="year">
+                <option>Year</option>
+                 @for($i=date('Y'); $i>1899; $i--)
+                   @if($dob[0]  == $i) 
+                    <option  selected="selected" value="{{$i}}">{{$i}}</option>
+                   @else
+                    <option value="{{$i}}">{{$i}}</option>
+                   @endif
+                   
+                  @endfor
               </select>
-              </div>
             </div>
-           <div class="form-group required">
+            <div class="col-xs-3">
+              <select class="form-control" name="month">
+                <option>month</option>
+                 @foreach($month as $key=>$value)
+                    
+                     @if($dob[1]  ==  $key) 
+                      <option selected="selected" value="{{$key}}">{{$value}}</option>
+                     @else
+                      <option value="{{$key}}">{{$value}}</option>
+                     @endif
+                 @endforeach
+              </select>
+            </div>
+            
+            <div class="col-xs-3">
+              <select class="form-control" name="day">
+               <option>day</option>
+                  @for($i=1; $i<32; $i++)
+                    @if($dob[2] == $i) 
+                      <option selected="selected" value="{{$i}}">{{$i}}</option>
+                     @else
+                      <option value="{{$i}}">{{$i}}</option>
+                     @endif
+                  @endfor
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+           <!--<div class="form-group required">
             <label class="col-sm-2 control-label" for="input-time">Time Frame</label>
             <div class="col-sm-10">
               <input type="text" name="timeframe" required="required" value="{{  !empty($student->timeframe) ?  $student->timeframe : ''    }}" placeholder="Months ,Years,Days to finish school" id="input-time" class="form-control" />
                           </div>
-          </div>
+          </div>-->
             @if ( count( $student))
                 <div class="row ">
                 <div class="col-xs-6  col-md-4 col-md-offset-3">

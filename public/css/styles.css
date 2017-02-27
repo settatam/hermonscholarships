@@ -3,6 +3,9 @@
 html,body {
 	background:#fff;
 }
+a{
+	text-decoration:none;
+}
 .jumbotron{
 	margin-top:-70px;
 	height: 400px;
@@ -59,3 +62,17 @@ html,body {
     margin-top: 20px;
 	margin-right: -2px;
 }
+.welcome-footer {
+    background-color: #fff;
+    height: 60px;
+    margin-top: 9px;
+    width: 100%;
+	padding-top: 10px;
+	text-align:center;
+	text-decoration:none;
+	border-top:2px solid #eee;
+}
+.welcome-footer a{
+   	text-decoration:none;
+}
+
