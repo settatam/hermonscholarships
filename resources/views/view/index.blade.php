@@ -17,7 +17,6 @@
         <div class="col-md-6">
         
          <img  src="/images/students/{{$photo->photos}}"  class="img-rounded" alt=""  />
-         <img  src="/images/students/{{$photo->photos }}"  class="img-rounded" alt="..." />
           <br/>
        <div class="row">
           @if( count($additional_images) )
@@ -76,9 +75,9 @@
                 <li>
                     <p><span>Class :</span>  {{ $student->grade}}</p>
                 </li>
-                <li>
+                <!--<li>
                     <p><span>Time To Complete school :</span> {{ $student->timeframe}}</p>
-                </li>                                                                                                                                            
+                </li> -->                                                                                                                                           
             </ul>
          
         

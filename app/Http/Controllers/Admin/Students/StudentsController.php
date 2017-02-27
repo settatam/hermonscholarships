@@ -67,7 +67,7 @@ class StudentsController extends Controller {
 					 $student->user_id=\Auth::user()->id;
 					 $student->date_of_birth=$request->date_of_birth;//tempral solution
 					 $student->name=$request->student_name;
-					 $student->timeframe = $request->timeframe;
+					 $student->timeframe = 'co time';
 					 $student->last_name=$request->student_last_name;
 					 $student->description=$request->description;
 					 $student->grade=$request->grade;
@@ -171,7 +171,7 @@ class StudentsController extends Controller {
 			   $student->user_id=\Auth::user()->id;
 			   $student->date_of_birth=$request->date_of_birth;//tempral solution
 			   $student->name=$request->student_name;
-			   $student->timeframe = $request->timeframe;
+			   $student->timeframe = 'no time';
 			   $student->last_name=$request->student_last_name;
 			   $student->description=$request->description;
 			   $student->grade=$request->grade;

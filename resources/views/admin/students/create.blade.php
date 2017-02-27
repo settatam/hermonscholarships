@@ -41,25 +41,89 @@
           
          
           
-          <div class="form-group required">
+          
+             <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-lastname">Date Of Birth</label>
               <div class="col-sm-10">
-               <select style="width:100%;" required="required"  class="form-control" name="date_of_birth"  tabindex="1" >
-                  <option value="">Choose</option>
-                  @foreach($age as $details )
-                      <option   value="{{$details}}">{{$details}}</option>
-                  @endforeach
-                    
+          <div class="row">
+            <div class="col-xs-3">
+              <select class="form-control col-sm-2" name="month" id="month">
+                <option>Month</option>
+                 @for($i=date('Y'); $i>1899; $i--) 
+                    <option value="{{$i}}">{{$i}}</option>
+                  @endfor
               </select>
-              </div>
             </div>
+            <div class="col-xs-3">
+              <select class="form-control" name="month">
+                <option>month</option>
+                 <option>jan</option>
+                 <option>feb</option>
+                 <option>mar</option>
+                 <option>apr</option>
+                 <option>may</option>
+                 <option>june</option>
+                 <option>july</option>
+                 <option>Aug</option>
+                 <option>Sep</option>
+                 <option>Oct</option>
+                 <option>Nov</option>
+                 <option>Dec</option>
+               
+              </select>
+            </div>
+            
+            <div class="col-xs-3">
+              <select class="form-control" name="day">
+               <option>date</option>
+               <option>1</option>
+               <option>2</option>
+               <option>3</option>
+               <option>4</option>
+               <option>5</option>
+               <option>6</option>
+               <option>7</option>
+               <option>8</option>
+               <option>9</option>
+               <option>10</option>
+               <option>11</option>
+               <option>12</option>
+               <option>13</option>
+               <option>14</option>
+               <option>15</option>
+               <option>16</option>
+               <option>17</option>
+               <option>18</option>
+               <option>19</option>
+               <option>20</option>
+               <option>21</option>
+               <option>22</option>
+               <option>23</option>
+               <option>24</option>
+               <option>25</option>
+               <option>26</option>
+               <option>27</option>
+               <option>28</option>
+               <option>29</option>
+               <option>30</option>
+               <option>31</option>
+               
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+            
+            
+             
+ 
           
-           <div class="form-group required">
+           <!--<div class="form-group required">
             <label class="col-sm-2 control-label" for="input-time">Time Frame</label>
             <div class="col-sm-10">
               <input type="text" name="timeframe" required="required" value="" placeholder="Months ,Years,Days to finish school" id="input-time" class="form-control" />
             </div>
-          </div>
+          </div>-->
            <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-lastname">Grade</label>
               <div class="col-sm-10">
@@ -113,19 +177,5 @@
         </div>
      </div> 
   </div> 
-  <script type="text/javascript">
    
-    var route_row = 1;
-
-function addImage() {
-	html  = '<tr id="route-row' + route_row + '">';
-	html += '<td class="text-left"><input type="file" name="additional_image[]" required="required" class="form-control" /></td>';
-	html += '<td class="text-left"><button type="button" onclick="$(\'#route-row' + route_row + '\').remove();" data-toggle="tooltip" title="Remove" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
-	html += '</tr>';
-	
-	$('#route tbody').append(html);
-	
-	route_row++;
-}
-  </script>  
 @endsection
