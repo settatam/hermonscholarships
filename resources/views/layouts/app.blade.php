@@ -49,13 +49,9 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-<<<<<<< HEAD
                        <li><a href="{{ url('/') }}">Home</a></li>
                        <li><a href="{{ url('/fund') }}">Sponsor A Child</a></li>
-=======
-                       <li><a href="{{ url('/fund') }}">Educate A Child</a></li>
-                      
->>>>>>> d8be6a9d1a5ae547bbf0d2116198d414e7f6a904
+
                        <li><a href="{{ url('/about') }}">About Us</a></li>
                         <!-- Authentication Links -->
                         @if (Auth::guest())
