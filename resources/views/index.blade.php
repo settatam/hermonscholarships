@@ -12,7 +12,7 @@
 
     <div class="container">
 
-     <div class="text-center starter-template" style="padding-top: 50px;">
+     <div class="text-center starter-template intro-copy">
         <h1>HELP EDUCATE A CHILD. </h1>
         <h2>With $12/month, you can provide a less privileged Child desperately needed education.</h2>
         <a href="/how-it-works" class="how-it-works"> How it works </a>
@@ -30,7 +30,7 @@
         <div class="caption">
         <h3>{{ $details->name}}  {{ $details->last_name}}</h3>
         <p class="truncate">{{ $details->description}}</p>
-        
+
       </div>
     </div>
     </a>
