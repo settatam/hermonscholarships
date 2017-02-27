@@ -10,9 +10,6 @@ html,body {
 .col-sm-6 a {
   text-decoration:none;
 }
-.thumbnail img {
-  width: 100%;
-}
 .stat{
 	float:left;
 	margin-right: 8px;
@@ -61,10 +58,4 @@ html,body {
 .thumbnails {
     margin-top: 20px;
 	margin-right: -2px;
-}
-
-.thumbnails img{
-	height: 70px;
-	width: 100px
-
 }
