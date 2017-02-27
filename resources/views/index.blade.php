@@ -3,48 +3,47 @@
 @section('content')
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="text-center container">
-        <h1>Help School A Child</h1>
-        <p>
-Join Thousands of People Who Are Giving A Child A Future</p>
-        <p><a class="btn btn-primary btn-lg" href="/fund" role="button">Educate A Child &raquo;</a></p>
-      </div>
-    </div>
+        <div class="hero">
+            <img class="js-mediaFit" src="/images/banner.jpg" alt="Hermon Scholarships - Help Fund a student" />
+        </div>
+
 
 
 
     <div class="container">
-    
-     <div class="text-center starter-template">
-        <h1>Meet Our Kids</h1>
-        <p class="lead">100% of your Donation will go into their education</p>
+
+     <div class="text-center starter-template intro-copy">
+        <h1>HELP EDUCATE A CHILD. </h1>
+        <h2>With $12/month, you can provide a less privileged Child desperately needed education.</h2>
+        <a href="/how-it-works" class="how-it-works"> How it works </a>
       </div>
       <!-- Example row of columns -->
       <div class="row">
-    
+
      @foreach ($students as $details )
     <div class="col-sm-6 col-md-4">
     <a href="/view/{{$details->id}}">
 
       <div class="thumbnail">
+        <div class="thumbnail-image">
+          <img class="img-responsive js-mediaFit" src="images/students/{{$details->photos}}" alt="Support a child">
+        </div>
 
-       <img class="img-responsive" src="images/students/{{$details->photos}}" alt="...">
         <div class="caption">
         <h3>{{ $details->name}}  {{ $details->last_name}}</h3>
         <p class="truncate">{{ $details->description}}</p>
-        
+
       </div>
     </div>
     </a>
     <p></p>
   </div>
   @endforeach
-  
+
 </div><!-- /.row -->
      <div class="row">
-        <div class="col-md-12">        <p class="text-center"><a class="btn btn-primary btn-lg" href="/fund" role="button">View All&raquo;</a></p>
+        <div class="col-md-12">
 </div>
-     </div> 
-   </div>   
+     </div>
+   </div>
 @endsection

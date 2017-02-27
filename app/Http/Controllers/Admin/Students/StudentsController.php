@@ -37,22 +37,16 @@ class StudentsController extends Controller {
 	 public function create(Request $request)
     {    
 		 $age  = $this->age();
-		 
               if ($request->isMethod('post')) {	
-	                
-		    	    $student = new Student();
-					
+		    	      $student = new Student();
 					 //CHECK IF IS AJAX JUST FOR VALIDATING FILE
-					 $file = $request->file('file');
-				
+					  $file = $request->file('file');
 					 // Build the input for validation
 					  $fileArray = array('image' => $file);
-				  
 					  // Tell the validator that this file should be an image
 					  $rules = array(
 						'image' => "mimes:jpeg,jpg,png,gif|required|max:3000"
 					  );
-				  
 					  // Now pass the input and rules into the validator
 					  $validator = \Validator::make($fileArray, $rules);
 					 
@@ -61,9 +55,6 @@ class StudentsController extends Controller {
 										  ->withErrors($validator)
 										  ->withInput();
 					   }
-				  
-					 
-					 
 					
 					 $this->validate($request, [
 					   'student_name'        => 'required|max:30',
@@ -88,13 +79,13 @@ class StudentsController extends Controller {
 				      $file->move('images/students',  $image);
 					 
 					 // create new Intervention Image
-					  $img = \Image::make('images/students/'.$image);
+					  //$img = \Image::make('images/students/'.$image);
 					  
 					  // paste another image
-					  $img->insert('images/students/hemon.jpg', 'bottom-right', 30, 30);
+					  //$img->insert('images/students/hemon.jpg', 'bottom-right', 30, 30);
 					 
 					 //save
-					  $img->save('images/students/'.$image);
+					  //$img->save('images/students/'.$image);
 					 
 					  $photo = new Photo(['student_id'=>$student->id,'photos'=>$image]);
 					 
@@ -163,13 +154,13 @@ class StudentsController extends Controller {
 				      $file->move('images/students',  $image);
 					 
 					 // create new Intervention Image
-					  $img = \Image::make('images/students/'.$image);
+					 // $img = \Image::make('images/students/'.$image);
 					  
 					  // paste another image
-					  $img->insert('images/students/hemon.jpg', 'bottom-right', 10, 10);
+					  //$img->insert('images/students/hemon.jpg', 'bottom-right', 10, 10);
 					 
 					 //save
-					  $img->save('images/students/'.$image);
+					 // $img->save('images/students/'.$image);
 					  
 				      $photo->photos=$image;
 			   } else { 
