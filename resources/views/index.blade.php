@@ -25,7 +25,7 @@
     <a href="/view/{{$details->id}}">
 
       <div class="thumbnail">
-        <dv class="thimbnail-image">
+        <div class="thumbnail-image">
           <img class="img-responsive js-mediaFit" src="images/students/{{$details->photos}}" alt="Support a child">
         </div>
 
