@@ -11,11 +11,18 @@ class Student extends Model
         'parent_id','user_id','name','last_name','description','grade','amount_raised','amount','date_of_birth'
      ];
 	 
-	 public function reports(){
-	  return $this->hasMany('App\Report');	
+	 public function additional_images(){
+	  return $this->hasMany('App\AdditionalImage');	
 	}
 	
 	 public function photo(){
 	  return $this->hasOne('App\Photo');
+	}
+	public function calender(){
+	  return $this->hasMany('App\SchoolCalender');
+	}
+	
+	public function fullname() { 
+	  return ucfirst($this->name) . ' '.ucfirst($this->last_name); 
 	}
 }

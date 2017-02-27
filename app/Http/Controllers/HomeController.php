@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 
 use App\Student;
 
@@ -25,10 +26,11 @@ class HomeController extends Controller
      */
     public function index()
     {   
-	
-	     //$students = Student::all();
+	   
 		
-		 $students = \DB::table('students')
+		//Student::getQuery()->delete();
+		
+		$students = \DB::table('students')
             ->join('photos', 'students.id', '=', 'photos.student_id')
             ->select('students.*', 'photos.photos')
             ->get();

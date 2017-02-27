@@ -29,7 +29,7 @@
                   </tr>
                   <tr>
                     <td>Full Name</td>
-                    <td>{{$student->name}} {{$student->last_name}}  </td>
+                    <td>{{$student->fullname()}} </td>
                   </tr>
                   
                                     <tr>
@@ -42,43 +42,18 @@
                   </tr>
                   
                   <tr>
-                    <td>Amount Raised</td>
-                    <td>-- </td>
+                    <td>Age</td>
+                    <td>{{$student->date_of_birth}}</td>
                   </tr>
                   <tr>
-                    <td>Sponsors</td>
-                    <td>-- </td>
+                    <td>Timeframe</td>
+                    <td>{{$student->timeframe}}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
        
-             <h2>Reports</h2>
-                @if (count($reports)  )  
-          <div class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <td >Title</td>
-                    <td >Description</td>
-                     <td>Action</td>
-                  </tr>
-                </thead>
-                <tbody>
-                @foreach($reports as $details )
-                  <tr>
-                    <td>{{ $details->title}}</td>
-                    <td>{{ $details->description}}</td>
-                    <td><a href="/admin/delete/reports/{{$details->id}}">Delete</a></td>
-                  </tr>
-                @endforeach 
-                </tbody>
-              </table>
-            </div>
-          @else
-          
-           No Reports Yet
-          @endif
+            
           </div>
         
         </div>

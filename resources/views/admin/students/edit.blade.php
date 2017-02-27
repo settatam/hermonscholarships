@@ -53,6 +53,28 @@
               </select>
               </div>
             </div>
+            
+            <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-lastname">Date Of Birth</label>
+              <div class="col-sm-10">
+               <select style="width:100%;" required="required"  class="form-control" name="date_of_birth"  tabindex="1" >
+                  <option value="">Choose</option>
+                  @foreach($age as $details )
+                    @if ( $details == trim($student->date_of_birth))
+                      <option selected="selected"   value="{{$details}}">{{$details}}</option>
+                    @else
+                      <option   value="{{$details}}">{{$details}}</option>
+                    @endif
+                  @endforeach
+              </select>
+              </div>
+            </div>
+           <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-time">Time Frame</label>
+            <div class="col-sm-10">
+              <input type="text" name="timeframe" required="required" value="{{  !empty($student->timeframe) ?  $student->timeframe : ''    }}" placeholder="Months ,Years,Days to finish school" id="input-time" class="form-control" />
+                          </div>
+          </div>
             @if ( count( $student))
                 <div class="row ">
                 <div class="col-xs-6  col-md-4 col-md-offset-3">
@@ -67,7 +89,7 @@
             <label class="col-sm-2 control-label" for="input-file">Image</label>
               
             <div class="col-sm-10">
-              <input type="file" name="file" required="required" class="form-control" />
+              <input type="file" name="file"  class="form-control" />
               <input type="hidden" name="image_from_database" required="required" value="{{ !empty($photo->photos) ?  $photo->photos : ''    }}" placeholder="Last Name" id="input-lastname" class="form-control" />
 
             </div>
