@@ -94,5 +94,6 @@
     <script src="https://use.typekit.net/cej4reu.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
     <script src="/js/app.js"></script>
+    <script src="/js/mediafit.js"></script>
 </body>
 </html>

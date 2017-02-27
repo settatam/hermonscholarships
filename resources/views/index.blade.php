@@ -25,8 +25,10 @@
     <a href="/view/{{$details->id}}">
 
       <div class="thumbnail">
+        <dv class="thimbnail-image">
+          <img class="img-responsive js-mediaFit" src="images/students/{{$details->photos}}" alt="Support a child">
+        </div>
 
-       <img class="img-responsive" src="images/students/{{$details->photos}}" alt="...">
         <div class="caption">
         <h3>{{ $details->name}}  {{ $details->last_name}}</h3>
         <p class="truncate">{{ $details->description}}</p>
