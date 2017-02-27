@@ -49,8 +49,8 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-                       <li><a href="{{ url('/fund') }}">Educate A Child</a></li>
-                       <li><a href="{{ url('/universal-fund') }}">Universal Fund</a></li>
+                       <li><a href="{{ url('/') }}">Home</a></li>
+                       <li><a href="{{ url('/fund') }}">Sponsor A Child</a></li>
                        <li><a href="{{ url('/about') }}">About Us</a></li>
                         <!-- Authentication Links -->
                         @if (Auth::guest())
@@ -84,12 +84,14 @@
         </nav>
 
         @yield('content')
-        
+
          <!-- FOOTER -->
-      
+
     </div>
 
     <!-- Scripts -->
+    <script src="https://use.typekit.net/cej4reu.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
     <script src="/js/app.js"></script>
 </body>
 </html>
