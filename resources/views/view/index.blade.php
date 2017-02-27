@@ -16,7 +16,7 @@
      
         <div class="col-md-6">
         
-         <img  src="/images/students/{{$photo->photos }}"  class="img-rounded" alt="..."
+         <img  src="/images/students/{{$photo->photos }}"  class="img-rounded" alt="..." />
           <br/>
        <div class="row">
           @if( count($additional_images) )
