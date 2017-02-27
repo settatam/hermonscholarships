@@ -77,10 +77,7 @@
                 </li>
                 <li>
                     <p><span>Time To Complete school :</span> {{ $student->timeframe}}</p>
-                </li>
-                
-                
-                                                                                                                                                           
+                </li>                                                                                                                                            
             </ul>
          
         
