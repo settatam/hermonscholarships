@@ -21,26 +21,27 @@ Join Thousands of People Who Are Giving A Child A Future</p>
       </div>
       <!-- Example row of columns -->
       <div class="row">
-        @foreach ($students as $details )
+
+     @foreach ($students as $details )
     <div class="col-sm-6 col-md-4">
     <a href="/view/{{$details->id}}">
 
       <div class="thumbnail">
+        <div class="thumbnail-image">
+          <img class="img-responsive js-mediaFit" src="images/students/{{$details->photos}}" alt="Support a child">
+        </div>
 
-       <img class="img-responsive" src="images/students/{{$details->photos}}" alt="...">
         <div class="caption">
         <h3>{{ $details->name}}  {{ $details->last_name}}</h3>
         <p class="truncate">{{ $details->description}}</p>
-        
-        
+
       </div>
     </div>
     </a>
+    <p></p>
   </div>
   @endforeach
-  
-  {{-- $students->links() --}}
-  
+
 </div><!-- /.row -->
       
    </div>   
