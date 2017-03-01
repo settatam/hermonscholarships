@@ -13,11 +13,8 @@ use App\AdditionalImage;
 class StudentsController extends Controller {
 	
 	
-	public function __construct ( ) { 
-	         
-			 
+	public function __construct ( ) {  	 
 	   $this->middleware('checkAccess');
-
 	} 
 
   
@@ -68,12 +65,14 @@ class StudentsController extends Controller {
 					   'day'=>'required',
 					   'description'=>'required'
 				    ]);
-					 $dob = $request->year.','.$request->month.','.$request->day;  
+					 $dob = $request->year.','.$request->month.','.$request->day; 
+					 $slug = strtolower($request->student_name.','.$request->student_last_name);
 					 //dd($dob);
 					 $student->user_id=\Auth::user()->id;
 					 $student->date_of_birth=$dob;//tempral solution
 					 $student->name=$request->student_name;
 					 $student->timeframe = 'co time';
+					  $student->slug = $this->slug($request->student_name,$request->student_last_name);
 					 $student->last_name=$request->student_last_name;
 					 $student->description=$request->description;
 					 $student->grade=$request->grade;
@@ -98,7 +97,13 @@ class StudentsController extends Controller {
         return view('admin.students.create',compact('month'));
     }
 	
-		
+	public function slug($val1,$val2) { 
+	    $slug=strtolower($val1.','.$val2);
+	    $slug=str_replace('.',' ', $slug);
+	    $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $slug);
+	   
+	   return rtrim($slug,'-'); 
+	}	
 	public  function show(Request $request,$student_id){
 		
 		   $student = Student::find($student_id);
@@ -155,6 +160,7 @@ class StudentsController extends Controller {
 					 //dd($dob);
 			   $student->user_id=\Auth::user()->id;
 			   $student->date_of_birth=$dob;
+			   $student->slug = $this->slug($request->student_name,$request->student_last_name);
 			   $student->name=$request->student_name;
 			   $student->timeframe = 'no time';
 			   $student->last_name=$request->student_last_name;

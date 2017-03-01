@@ -12,6 +12,8 @@ class  ViewController extends Controller
 	
 	public function index ( Request $request,$id) {
 		
+		
+		
 		$student  = Student::find($id);
 		
 		$additional_images  = Student::find($id)->additional_images;
@@ -20,8 +22,9 @@ class  ViewController extends Controller
 		
 		$calender =  Student::find($id)->calender;
 
-
-		return view('view.index',compact('calender','additional_images','student','photo'));
+        $page_title = $student->fullname() .'Profile Information|'.config('app.name', 'Laravel');
+		
+		return view('view.index',compact('page_title','calender','additional_images','student','photo'));
 	}
 
     

@@ -22,7 +22,7 @@
 
      @foreach ($students as $details )
     <div class="col-sm-6 col-md-4">
-    <a href="/view/{{$details->id}}">
+    <a href="/view/{{$details->id}}/{{$details->slug}}">
 
       <div class="thumbnail">
         <div class="thumbnail-image">

@@ -43,7 +43,7 @@ Route::get('/errors/503','ErrorsController@index');
 
 Auth::routes();
 
-Route::get('/view/{id}', 'ViewController@index');
+Route::get('/view/{id}/{slug}', 'ViewController@index');
 
 Route::get('/fund', 'EducateController@index');
 Route::get('/payment/{student_id}', 'FundController@index');
