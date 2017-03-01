@@ -10,7 +10,9 @@ class Student extends Model
 	protected $fillable = [
         'parent_id','user_id','name','last_name','description','grade','amount_raised','amount','date_of_birth'
      ];
-	 
+	 protected $dates = [
+        'date_of_birth'
+     ];
 	 public function additional_images(){
 	  return $this->hasMany('App\AdditionalImage');	
 	}
@@ -29,9 +31,8 @@ class Student extends Model
 	
 	
 	public function formatDate(  ) { 
-	  $d = explode(',',$this->date_of_birth);
-	  $dob =   \Carbon\Carbon::createFromDate($d[0],$d[1],$d[2]);
-	  $dob = str_replace('ago',' ',$dob->diffForHumans());
+	 
+	  $dob = str_replace('ago',' ',$this->date_of_birth->diffForHumans());
 	  return $dob;
 	}
 	

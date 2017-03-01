@@ -35,27 +35,15 @@ class StudentsController extends Controller {
     {    
 		  $month    = $this->month();
 		    // $dat = 2006109;
-		    // $dt = \Carbon\Carbon::createFromFormat('Y-m-d H', '2004-08-13 10:57:44'); 
-			      //   dd($dt->toDateTimeString());  // 
+		     //$dt = \Carbon\Carbon::createFromDate($request->year,$request->month,$request->day); 
+			       //dd($dt->toDateTimeString());  // 
 		  
               if ($request->isMethod('post')) {
 				  	
-		    	      $student = new Student();
-					 //CHECK IF IS AJAX JUST FOR VALIDATING FILE
-					  $file = $request->file('file');
-					 // Build the input for validation
-					  $fileArray = array('image' => $file);
-					  // Tell the validator that this file should be an image
-					  $rules = array(
-						'image' => "mimes:jpeg,jpg,png,gif|required|max:3000"
-					  );
-					  // Now pass the input and rules into the validator
-					  $validator = \Validator::make($fileArray, $rules);
-					   if ($validator->fails()) {
-						  return \Redirect::back()
-										  ->withErrors($validator)
-										  ->withInput();
-					   }
+		    	     $student = new Student();
+					 
+					 $this->validateFile($request);
+					 
 					 $this->validate($request, [
 					   'student_name'        => 'required|max:70',
 					   'student_last_name'   => 'required|max:70',
@@ -65,18 +53,19 @@ class StudentsController extends Controller {
 					   'day'=>'required',
 					   'description'=>'required'
 				    ]);
-					 $dob = $request->year.','.$request->month.','.$request->day; 
+					 $dt = \Carbon\Carbon::createFromDate($request->year,$request->month,$request->day); 
+			      
 					 $slug = strtolower($request->student_name.','.$request->student_last_name);
 					 //dd($dob);
 					 $student->user_id=\Auth::user()->id;
-					 $student->date_of_birth=$dob;//tempral solution
+					 $student->date_of_birth=$dt->toDateTimeString();//tempral solution
 					 $student->name=$request->student_name;
-					 $student->timeframe = 'co time';
 					  $student->slug = $this->slug($request->student_name,$request->student_last_name);
 					 $student->last_name=$request->student_last_name;
 					 $student->description=$request->description;
 					 $student->grade=$request->grade;
 					 $student->save();
+					 $file = $request->file('file');
 					 $image = uniqid().'.'.$file->getClientOriginalExtension();
 					 $file->move('images/students',  $image);
 				   
@@ -116,16 +105,11 @@ class StudentsController extends Controller {
 		   return view('admin.students.students',compact('student','reports','photo'));
 
 	} 
-
-	public  function edit (Request $request, $student_id) {
-		
-		
-		$student  = Student::find($student_id);
-	    $photo   = Student::find($student_id)->photo;
-        $month    = $this->month();
-	    if ($request->isMethod('post')) {	
-		       $file = $request->file('file');
-			   if ( $file ) {
+	
+	public function validateFile(Request $request) { 
+	
+	  //CHECK IF IS AJAX JUST FOR VALIDATING FILE
+					  $file = $request->file('file');
 					 // Build the input for validation
 					  $fileArray = array('image' => $file);
 					  // Tell the validator that this file should be an image
@@ -139,22 +123,26 @@ class StudentsController extends Controller {
 										  ->withErrors($validator)
 										  ->withInput();
 					   }
+					  
+	}
+
+	public  function edit (Request $request, $student_id) {
+		
+		
+		$student  = Student::find($student_id);
+	    $photo   = Student::find($student_id)->photo;
+        $month    = $this->month();
+	     if ($request->isMethod('post')) {
+			      if( $request->hasFile('file')) {	
+		              $this->validateFile($request);
+					  
 				      $image = uniqid().'.'.$file->getClientOriginalExtension();
 				      $file->move('images/students',  $image);
-					 
-					 // create new Intervention Image
-					 // $img = \Image::make('images/students/'.$image);
-					  
-					  // paste another image
-					  //$img->insert('images/students/hemon.jpg', 'bottom-right', 10, 10);
-					 
-					 //save
-					 // $img->save('images/students/'.$image);
 					  
 				      $photo->photos=$image;
-			   } else { 
-				       $photo->photos=  $request->image_from_database;
-			   }
+				  }else { 
+				      $photo->photos=  $request->image_from_database;
+				  }
 			   $photo->save();   
 			   $dob = $request->year.','.$request->month.','.$request->day;  
 					 //dd($dob);
@@ -162,7 +150,6 @@ class StudentsController extends Controller {
 			   $student->date_of_birth=$dob;
 			   $student->slug = $this->slug($request->student_name,$request->student_last_name);
 			   $student->name=$request->student_name;
-			   $student->timeframe = 'no time';
 			   $student->last_name=$request->student_last_name;
 			   $student->description=$request->description;
 			   $student->grade=$request->grade;

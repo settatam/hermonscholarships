@@ -22,7 +22,7 @@ class  ViewController extends Controller
 		
 		$calender =  Student::find($id)->calender;
 
-        $page_title = $student->fullname() .'Profile Information|'.config('app.name', 'Laravel');
+        $page_title = $student->fullname()  .'  Profile|'.config('app.name', 'Laravel');
 		
 		return view('view.index',compact('page_title','calender','additional_images','student','photo'));
 	}
