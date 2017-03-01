@@ -29,13 +29,7 @@ class HomeController extends Controller
 	   
 		
 		// Better
-		  Schema::dropIfExists('migrations');
-		  Schema::dropIfExists('additional_images');
-		  Schema::dropIfExists('password_resets');
-		  Schema::dropIfExists('photos');
-          Schema::dropIfExists('school_calenders');
-		  Schema::dropIfExists('students');
-
+		  
 		$students = \DB::table('students')
             ->join('photos', 'students.id', '=', 'photos.student_id')
             ->select('students.*', 'photos.photos')

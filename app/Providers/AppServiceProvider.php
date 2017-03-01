@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Student;
 use App\User;
+use Illuminate\Support\Facades\Schema;
+
 
 
 class AppServiceProvider extends ServiceProvider
@@ -17,6 +19,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+				  Schema::dropIfExists('migrations');
+		  Schema::dropIfExists('users');
+
 		$tables = \DB::select('SHOW TABLES');
 		dd($tables);
 		$number_of_students = Student::count();
