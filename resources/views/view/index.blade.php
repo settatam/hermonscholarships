@@ -15,8 +15,9 @@
       <div class="row">
      
         <div class="col-md-6">
-        
-         <img  src="/images/students/{{$photo->photos}}"  class="img-rounded" alt=""  />
+         <div class="main-image">
+            <img  src="/images/students/{{$photo->photos}}"  class=" img-reponsive js-mediaFit" alt="{{$photo->photos}}"  />
+         </div>
           <br/>
        <div class="row">
           @if( count($additional_images) )

@@ -15,12 +15,8 @@
       <div class="row">
     
         <div class="col-sm-12 col-md-6">
-            <div class="thumbnail">
-      
-             <img src="/images/students/{{$photo->photos }}" alt="...">
-              
-             
-     
+            <div class="main-image">
+             <img class="img-responsive js-mediaFit" src="/images/students/{{$photo->photos }}" alt="...">
           </div>
         </div>
   <div class="col-sm-12 col-md-6">

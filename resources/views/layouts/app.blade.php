@@ -90,9 +90,8 @@
      
     </div>
     
-    
-     <footer class="welcome-footer">
-
+  
+     <footer class="welcome-footer clearfix">
       <div class="container">
 
          <div class="footer-links">
