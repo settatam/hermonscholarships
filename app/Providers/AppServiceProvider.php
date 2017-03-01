@@ -19,11 +19,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-				  Schema::dropIfExists('migrations');
-		  Schema::dropIfExists('users');
-
-		$tables = \DB::select('SHOW TABLES');
-		dd($tables);
+		//$tables = \DB::select('SHOW TABLES');
 		$number_of_students = Student::count();
 	
 		 $number_of_users = User::count();
