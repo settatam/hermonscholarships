@@ -17,7 +17,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-		
+		$tables = \DB::select('SHOW TABLES');
+		dd($tables);
 		$number_of_students = Student::count();
 	
 		 $number_of_users = User::count();
