@@ -22,8 +22,7 @@ class AppServiceProvider extends ServiceProvider
 		 // Schema::dropIfExists('migrations');
 		 // Schema::dropIfExists('users');
 
-		$tables = \DB::select('SHOW TABLES');
-		dd($tables);
+		
 		 //$number_of_students = Student::count();
 	
 		 //$number_of_users = User::count();
