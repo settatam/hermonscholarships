@@ -27,8 +27,6 @@ class HomeController extends Controller
     public function index()
     {   
 	   
-		$tables = \DB::select('SHOW TABLES');
-		dd($tables);
 		// Better
 		  
 		$students = \DB::table('students')
