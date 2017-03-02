@@ -46,7 +46,7 @@ Auth::routes();
 Route::get('/view/{id}/{slug}', 'ViewController@index');
 
 Route::get('/fund', 'EducateController@index');
-Route::get('/payment/{student_id}', 'FundController@index');
+Route::get('/sponsor/{slug}/{student_id}', 'FundController@index');
 Route::get('/account',           'AccountController@index');
 Route::get('/changepassword',    'AccountController@chp');
 Route::get('/address',           'AccountController@address');

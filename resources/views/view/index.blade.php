@@ -16,7 +16,7 @@
      
         <div class="col-md-6">
          <div class="main-image">
-            <img  src="/images/students/{{$photo->photos}}"  class=" img-reponsive js-mediaFit" alt="{{$photo->photos}}"  />
+            <img  src="/images/students/{{$photo->photos}}"  class="img-reponsive js-mediaFit" alt="{{$photo->photos}}"  />
          </div>
           <br/>
        <div class="row">
@@ -107,7 +107,7 @@
           <div class="btn-group btn-group-justified" role="group" aria-label="...">
           <div class="btn-group" role="group">
             
-            <button type="button" onclick="location.href='/payment/{{$student->id}}'" class="btn btn-default btn-group">Sponsor</button>
+            <button type="button" onclick="location.href='/sponsor/{{$student->slug}}/{{$student->id}}/'" class="btn btn-default btn-group">Sponsor</button>
           </div>
           
           
