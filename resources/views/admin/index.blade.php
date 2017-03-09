@@ -21,7 +21,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Users</span>
-              <span class="info-box-number">90</span>
+              <span class="info-box-number">{{$number_of_users}}</span>
             </div>
             <!-- /.info-box-content -->
           
@@ -48,39 +48,7 @@
 
             
       
-      <!-- /.<!--<div class="col-md-8">
-          <div class="panel panel-primary">
-            <h2>Bordered Table</h2>
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>Firstname</th>
-                      <th>Lastname</th>
-                      <th>Email</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>John</td>
-                      <td>Doe</td>
-                      <td>john@example.com</td>
-                    </tr>
-                    <tr>
-                      <td>Mary</td>
-                      <td>Moe</td>
-                      <td>mary@example.com</td>
-                    </tr>
-                    <tr>
-                      <td>July</td>
-                      <td>Dooley</td>
-                      <td>july@example.com</td>
-                    </tr>
-                  </tbody>
-                </table>
-          
-          </div>
-        
-        </div>-->
+      
         
      </div> 
   </div>   

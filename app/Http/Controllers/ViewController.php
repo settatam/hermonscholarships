@@ -11,9 +11,7 @@ class  ViewController extends Controller
     //
 	
 	public function index ( Request $request,$id) {
-		
-		
-		
+	
 		$student  = Student::find($id);
 		
 		$additional_images  = Student::find($id)->additional_images;

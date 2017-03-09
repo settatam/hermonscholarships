@@ -15,14 +15,14 @@ class Student extends Model
      ];
 	 public function additional_images(){
 	  return $this->hasMany('App\AdditionalImage');	
-	}
+	 }
 	
 	 public function photo(){
 	  return $this->hasOne('App\Photo');
-	}
+	 }
 	public function calender(){
 	  return $this->hasMany('App\SchoolCalender');
-	}
+	 }
 	
 	public function fullname() { 
 	  return ucfirst($this->name) . ' '.ucfirst($this->last_name); 
@@ -35,6 +35,8 @@ class Student extends Model
 	  $dob = str_replace('ago',' ',$this->date_of_birth->diffForHumans());
 	  return $dob;
 	}
+	
+	
 	
 	
 }

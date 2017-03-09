@@ -21,13 +21,10 @@ class StudentsController extends Controller {
   
    public function index()
     {    
-	
-		
 		 $students = \DB::table('students')
             ->join('photos', 'students.id', '=', 'photos.student_id')
             ->select('students.*', 'photos.photos')
             ->get();
-		
         return view('admin.students.index', compact ('students'));
     }
 	
@@ -60,7 +57,7 @@ class StudentsController extends Controller {
 					 $student->user_id=\Auth::user()->id;
 					 $student->date_of_birth=$dt->toDateTimeString();//tempral solution
 					 $student->name=$request->student_name;
-					  $student->slug = $this->slug($request->student_name,$request->student_last_name);
+					 $student->slug = $this->slug($request->student_name,$request->student_last_name);
 					 $student->last_name=$request->student_last_name;
 					 $student->description=$request->description;
 					 $student->grade=$request->grade;
@@ -68,19 +65,9 @@ class StudentsController extends Controller {
 					 $file = $request->file('file');
 					 $image = uniqid().'.'.$file->getClientOriginalExtension();
 					 $file->move('images/students',  $image);
-				   
-				   // create new Intervention Image
-					//$img = \Image::make('images/students/'.$image);
-					
-					// paste another image
-					//$img->insert('images/students/hemon.jpg', 'bottom-right', 30, 30);
-				   
-				   //save
-					//$img->save('images/students/'.$image);
-				   
-					$photo = new Photo(['student_id'=>$student->id,'photos'=>$image]);
-					$photo->save();
-					return redirect('/admin/students')->with('status', 'Students Details Created');	  
+					 $photo = new Photo(['student_id'=>$student->id,'photos'=>$image]);
+					 $photo->save();
+					 return redirect('/admin/students')->with('status', 'Students Details Created');	  
 			   }
 			    	 
         return view('admin.students.create',compact('month'));
@@ -160,7 +147,8 @@ class StudentsController extends Controller {
 	 
 				 	
 		}
-	    $dob = explode(',',$student->date_of_birth);
+		$dob =  substr($student->date_of_birth, 0, 10);
+	    $dob =  explode('-',$dob);
 	    return view('admin.students.edit',compact('dob','month','student','student_id','photo'));
  
 	}
