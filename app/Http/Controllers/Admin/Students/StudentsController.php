@@ -55,7 +55,7 @@ class StudentsController extends Controller {
 					 $slug = strtolower($request->student_name.','.$request->student_last_name);
 					 //dd($dob);
 					 $student->user_id=\Auth::user()->id;
-					 $student->date_of_birth=$dt->toDateTimeString();//tempral solution
+					 $student->date_of_birth=$dt->toDateTimeString();
 					 $student->name=$request->student_name;
 					 $student->slug = $this->slug($request->student_name,$request->student_last_name);
 					 $student->last_name=$request->student_last_name;
@@ -116,12 +116,13 @@ class StudentsController extends Controller {
 	public  function edit (Request $request, $student_id) {
 		
 		
-		$student  = Student::find($student_id);
-	    $photo   = Student::find($student_id)->photo;
-        $month    = $this->month();
-	     if ($request->isMethod('post')) {
+			  $student  = Student::find($student_id);
+			  $photo    = Student::find($student_id)->photo;
+			  $month    = $this->month();
+	          if ($request->isMethod('post')) {
 			      if( $request->hasFile('file')) {	
 		              $this->validateFile($request);
+					   $file = $request->file('file');
 					  
 				      $image = uniqid().'.'.$file->getClientOriginalExtension();
 				      $file->move('images/students',  $image);
@@ -129,12 +130,11 @@ class StudentsController extends Controller {
 				      $photo->photos=$image;
 				  }else { 
 				      $photo->photos=  $request->image_from_database;
-				  }
+			   }
 			   $photo->save();   
-			   $dob = $request->year.','.$request->month.','.$request->day;  
-					 //dd($dob);
+			   $dt = \Carbon\Carbon::createFromDate($request->year,$request->month,$request->day);  
 			   $student->user_id=\Auth::user()->id;
-			   $student->date_of_birth=$dob;
+			   $student->date_of_birth=$dt->toDateTimeString();
 			   $student->slug = $this->slug($request->student_name,$request->student_last_name);
 			   $student->name=$request->student_name;
 			   $student->last_name=$request->student_last_name;
