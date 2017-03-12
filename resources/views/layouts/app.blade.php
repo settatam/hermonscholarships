@@ -37,7 +37,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        <img src="/images/logo.png" alt="Welcome  to Hermon Scholarships" />
                     </a>
                 </div>
 
@@ -87,28 +87,28 @@
         @yield('content')
 
          <!-- FOOTER -->
-     
+
     </div>
-    
-  
+
+
      <footer class="welcome-footer clearfix">
       <div class="container">
 
          <div class="footer-links">
 
-            <a href="#">Terms of Use</a> | 
+            <a href="#">Terms of Use</a> |
 
-            <a href="#">Privacy Policy</a> | 
+            <a href="#">Privacy Policy</a> |
 
-            <a href="#">Contact</a> | 
+            <a href="#">Contact</a> |
 
             <a href="#">About</a>
 
-          </div>   
+          </div>
 
-          Copyright &copy; {{config('app.name')}} - All rights reserved       
+          Copyright &copy; {{config('app.name')}} - All rights reserved
 
-       
+
 
       </div>
 
