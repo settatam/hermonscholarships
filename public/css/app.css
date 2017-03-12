@@ -7736,4 +7736,8 @@ h2 {
   overflow: hidden;
 }
 
+.navbar-brand {
+  padding: 3px 15px;
+}
+
 /*# sourceMappingURL=app.css.map */
