@@ -7743,12 +7743,45 @@ h2 {
 .hero-caption {
   position: absolute;
   width: 500px;
-  height: 500px;
+  height: 360px;
   top: 50%;
-  right: 20%;
-  margin-top: -250px;
+  right: 10%;
+  margin-top: -180px;
   background-color: #00457c;
-  opacity: 0.95;
+  opacity: 0.90;
+  color: white;
+  padding: 50px 30px;
+}
+
+.hero-caption h1 {
+  color: white;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+.hero-caption p {
+  font-size: 16px;
+  font-weight: 100;
+}
+
+.hero-caption .cta {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 2px solid #fff;
+  padding: 10px;
+  text-align: center;
+  width: 250px;
+  margin: 50px auto 0 auto;
+  display: block;
+}
+
+.hero-caption h2 {
+  font-weight: 100;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 34px;
   color: white;
 }
 

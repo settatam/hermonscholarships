@@ -5,7 +5,12 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="hero">
             <img class="js-mediaFit" src="/images/banner.jpg" alt="Hermon Scholarships - Help Fund a student" />
-            <div class="hero-caption"> Providing Quality Education to Low income children</div>
+            <div class="hero-caption">
+                <h2>WELCOME TO </h2>
+                <h1> HERMON SCHOLARSHIPS </h2>
+                <p> We raise and distribute funds which provides primary and secondary education to low-income and high risk children</p>
+                <a class="cta" href="#"> MEET OUR KIDS </a>
+            </div>
         </div>
 
 
