@@ -61,3 +61,15 @@ h2 {
 .navbar-brand {
   padding: 3px 15px;
 }
+
+.caption {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  right: 20%;
+  margin-top: -250px;
+  background-color: #00457c;
+  opacity: 0.95;
+  color: white;
+}
