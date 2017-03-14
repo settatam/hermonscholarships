@@ -7786,16 +7786,20 @@ h2 {
 }
 
 .main-image {
-  margin-top: 40px;
-  margin-bottom: 40px;
-  height: 320px;
+  height: 400px;
   z-index: 50;
 }
 
 .student-details {
   height: 400px;
-  margin-left: -70px;
+  margin-left: -15px;
   background-color: #00457c;
+  color: white;
+}
+
+.student-details h1 {
+  color: white;
+  font-weight: 500;
 }
 
 /*# sourceMappingURL=app.css.map */
