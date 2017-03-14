@@ -78,11 +78,6 @@
             <div class="col-xs-3">
               <input type="text" name="no_of_months" required="required" value="" placeholder="" class="form-control" />
             </div>
-
-            <div class="col-xs-3">
-               <span> /</span>
-              Months.
-            </div>
           </div>
         </div>
       </div>
