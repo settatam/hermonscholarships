@@ -66,16 +66,15 @@
         <div class="col-md-6 student-details">
           <h1> {{ $student->fullname()}} </h1>
 
+          <p>{{ $student->fullname() }} is a {{ $student->formatDate()}} old pupil of All Nations Nursery and Primary School, Lagos Nigeria. When she grows up, she want to be a Medical Doctor.
+            <p> To Support {{ $student->fullname() }} click the sponsor button below.</p>
+          </p>
+
             <ul class="client-details">
-                <li>
-                    <p><span>Name:</span>   </p>
+
+                    <p><span>Age :</span>  {{ $student->formatDate()}} </p>
                 </li>
-                <li>
-                    <p><span>Age :</span>  {{ $student->formatDate()}}</p>
-                </li>
-                <li>
-                    <p><span>Class :</span>  {{ $student->grade}}</p>
-                </li>
+
                 <!--<li>
                     <p><span>Time To Complete school :</span> {{ $student->timeframe}}</p>
                 </li> -->
