@@ -70,20 +70,6 @@
             <p> To Support {{ $student->fullname() }} click the sponsor button below.</p>
           </p>
 
-            <ul class="client-details">
-
-                    <p><span>Age :</span>  {{ $student->formatDate()}} </p>
-                </li>
-
-                <!--<li>
-                    <p><span>Time To Complete school :</span> {{ $student->timeframe}}</p>
-                </li> -->
-            </ul>
-
-
-        <div><h5>Enter the number of months you want to sponsor {{ $student->fullname()}} .</h5>
-          <p>$12 dollars per Month</p>
-        </div>
        <form action="" method="post" class="form-horizontal">
               <div class="form-group">
         <label class="col-sm-3 control-label" for="expiry-month"> Number of Months</label>
