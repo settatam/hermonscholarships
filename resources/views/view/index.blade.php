@@ -3,17 +3,17 @@
 @section('content')
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
-   
+
 
 
     <div class="container">
-    
+
      <div class=" starter-template">
         <h1></h1>
       </div>
       <!-- Example row of columns -->
       <div class="row">
-     
+
         <div class="col-md-6">
          <div class="main-image">
             <img  src="/images/students/{{$photo->photos}}"  class="img-reponsive js-mediaFit" alt="{{$photo->photos}}"  />
@@ -31,44 +31,44 @@
             @endforeach
           @endif
           </div>
-                                                                                                                                                                         
-      
-                                                                                                                                                                       
-        
+
+
+
+
           <p class="margin-top-40">
-          
+
           <p>{{--$student->created_at--}}</p>
             {{$student->description}}
           </p>
         <hr/>
-        
-        
+
+
        <div class="media">
                <h3 class="">{{date('Y')}} Academic Calender  For {{$student->fullname()}}</h3>
                 <hr/>
                   <div class="">
                   @if(count($calender))
                     @foreach($calender as $details)
-                   <h4>{{$details->title}}</h4> 
+                   <h4>{{$details->title}}</h4>
                    <p>{{$details->description}}</p>
-                   <hr/> 
+                   <hr/>
                     @endforeach
-                    
+
                    @else
-                   
-                    <h4>No Calender Yet</h4> 
+
+                    <h4>No Calender Yet</h4>
                   @endif
                   </div>
-            
+
             </div>
         </div>
-  
-        <div class="col-md-6">
-        
-           
+
+        <div class="col-md-6 student-details">
+          <h1> {{ $student->fullname()}} </h1>
+
             <ul class="client-details">
                 <li>
-                    <p><span>Name:</span>   {{ $student->fullname()}}</p>
+                    <p><span>Name:</span>   </p>
                 </li>
                 <li>
                     <p><span>Age :</span>  {{ $student->formatDate()}}</p>
@@ -78,10 +78,10 @@
                 </li>
                 <!--<li>
                     <p><span>Time To Complete school :</span> {{ $student->timeframe}}</p>
-                </li> -->                                                                                                                                           
+                </li> -->
             </ul>
-         
-        
+
+
         <div><h5>Enter the number of months you want to sponsor {{ $student->fullname()}} .</h5>
           <p>$12 dollars per Month</p>
         </div>
@@ -93,31 +93,31 @@
             <div class="col-xs-3">
               <input type="text" name="no_of_months" required="required" value="" placeholder="" class="form-control" />
             </div>
-        
+
             <div class="col-xs-3">
                <span> /</span>
-              Months. 
+              Months.
             </div>
           </div>
         </div>
       </div>
-           
+
            </form>
 
           <div class="btn-group btn-group-justified" role="group" aria-label="...">
           <div class="btn-group" role="group">
-            
+
             <button type="button" onclick="location.href='/sponsor/{{$student->slug}}/{{$student->id}}/'" class="btn btn-default btn-group">Sponsor</button>
           </div>
-          
-          
+
+
          </div>
         </div>
 
-  
+
        </div><!-- /.row -->
      <div class="row">
 </div>
-     </div> 
-   </div>   
+     </div>
+   </div>
 @endsection
