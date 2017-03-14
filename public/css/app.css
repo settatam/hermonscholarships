@@ -7785,14 +7785,14 @@ h2 {
   color: white;
 }
 
-.hero-caption .main-image {
+.main-image {
   margin-top: 40px;
   margin-bottom: 40px;
   height: 320px;
   z-index: 50;
 }
 
-.hero-caption .student-details {
+.student-details {
   height: 400px;
   margin-left: -70px;
   background-color: #00457c;
