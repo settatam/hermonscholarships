@@ -33,10 +33,7 @@ class HomeController extends Controller
             ->join('photos', 'students.id', '=', 'photos.student_id')
             ->select('students.*', 'photos.photos')
             ->get();
-		\Schema::table('students', function($table)
-		{
-		 $table->string('future_ambition')->after('grade')->nullable();
-		});
+		
         return view('index',compact('students'));
     }
 }
