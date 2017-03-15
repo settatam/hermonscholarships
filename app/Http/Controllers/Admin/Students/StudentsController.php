@@ -60,6 +60,7 @@ class StudentsController extends Controller {
 					 $student->slug = $this->slug($request->student_name,$request->student_last_name);
 					 $student->last_name=$request->student_last_name;
 					 $student->description='description will be generated dynamically';
+					 $student->future_ambition=$request->future_ambition;
 					 $student->grade=$request->grade;
 					 $student->save();
 					 $file = $request->file('file');
@@ -137,6 +138,7 @@ class StudentsController extends Controller {
 			   $student->date_of_birth=$dt->toDateTimeString();
 			   $student->slug = $this->slug($request->student_name,$request->student_last_name);
 			   $student->name=$request->student_name;
+			    $student->future_ambition=$request->future_ambition;
 			   $student->last_name=$request->student_last_name;
 			    $student->description='description will be generated dynamically';
 			   $student->grade=$request->grade;
