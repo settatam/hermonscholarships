@@ -30,7 +30,7 @@
              </div>
             @endforeach
           @endif
-          </div>
+        </div>
 
 
 
@@ -67,22 +67,11 @@
           <h1> {{ $student->fullname()}} </h1>
 
           <p>{{ $student->fullname() }} is a {{ $student->formatDate()}} old pupil of All Nations Nursery and Primary School, Lagos Nigeria. When she grows up, she want to be a Medical Doctor.
-            <p> To Support {{ $student->fullname() }} click the sponsor button below.</p>
+            <p> With $12 a month, you can provide a future for {{ $student->fullname() }}. To Support her, please click the sponsor button below.</p>
           </p>
 
-       <form action="" method="post" class="form-horizontal">
-              <div class="form-group">
-        <label class="col-sm-3 control-label" for="expiry-month"> Number of Months</label>
-        <div class="col-sm-9">
-          <div class="row">
-            <div class="col-xs-3">
-              <input type="text" name="no_of_months" required="required" value="" placeholder="" class="form-control" />
-            </div>
-          </div>
-        </div>
-      </div>
+          <a href="#" class="cta"> SPONSOR {{ $student->fullname() }} ?></a>
 
-           </form>
 
           <div class="btn-group btn-group-justified" role="group" aria-label="...">
           <div class="btn-group" role="group">
