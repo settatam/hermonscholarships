@@ -70,17 +70,8 @@
             <p> With $12 a month, you can provide a future for {{ $student->fullname() }}. To Support her, please click the sponsor button below.</p>
           </p>
 
-          <a href="#" class="cta"> SPONSOR {{ $student->fullname() }} ?></a>
+          <a href="#" class="cta"> SPONSOR {{ $student->fullname() }} </a>
 
-
-          <div class="btn-group btn-group-justified" role="group" aria-label="...">
-          <div class="btn-group" role="group">
-
-            <button type="button" onclick="location.href='/sponsor/{{$student->slug}}/{{$student->id}}/'" class="btn btn-default btn-group">Sponsor</button>
-          </div>
-
-
-         </div>
         </div>
 
 
