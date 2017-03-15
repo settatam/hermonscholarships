@@ -101,16 +101,16 @@
                     <option  value="Primary 5">Primary 5</option>
               </select>
               </div>
-            </div>
+         </div>
            
              
-          
+            <!-- 
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-postcode">Description</label>
             <div class="col-sm-10">
-              <textarea  name="description" required="required"  class="form-control" ></textarea>
+              <textarea  name="description"  class="form-control" ></textarea>
             </div>
-          </div>
+          </div>--> 
           
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-file">Image</label>

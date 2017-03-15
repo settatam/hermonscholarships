@@ -48,7 +48,7 @@ class StudentsController extends Controller {
 					   'year'=>'required',
 					   'month'=>'required',
 					   'day'=>'required',
-					   'description'=>'required'
+					  // 'description'=>'required'
 				    ]);
 					 $dt = \Carbon\Carbon::createFromDate($request->year,$request->month,$request->day); 
 			      
@@ -59,7 +59,7 @@ class StudentsController extends Controller {
 					 $student->name=$request->student_name;
 					 $student->slug = $this->slug($request->student_name,$request->student_last_name);
 					 $student->last_name=$request->student_last_name;
-					 $student->description=$request->description;
+					 $student->description='description will be generated dynamically';
 					 $student->grade=$request->grade;
 					 $student->save();
 					 $file = $request->file('file');
@@ -138,7 +138,7 @@ class StudentsController extends Controller {
 			   $student->slug = $this->slug($request->student_name,$request->student_last_name);
 			   $student->name=$request->student_name;
 			   $student->last_name=$request->student_last_name;
-			   $student->description=$request->description;
+			    $student->description='description will be generated dynamically';
 			   $student->grade=$request->grade;
 			   $student->save();      				  	  
 			   
