@@ -37,9 +37,7 @@
 
           <p class="margin-top-40">
 
-          <p>{{--$student->created_at--}}</p>
-            {{$student->description}}
-          </p>
+
         <hr/>
 
 

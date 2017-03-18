@@ -9,7 +9,7 @@
                 <h2>WELCOME TO </h2>
                 <h1> HERMON SCHOLARSHIPS </h2>
                 <p> We raise and distribute funds which provides primary and secondary education to low-income and high risk children</p>
-                <a class="cta" href="#"> MEET OUR KIDS </a>
+                <a class="cta" href="/fund"> MEET OUR KIDS </a>
             </div>
         </div>
 
