@@ -80,12 +80,12 @@
              
  
           
-           <!--<div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-time">Time Frame</label>
+           <div class="form-group required">
+            <label class="col-sm-2 control-label" for="future_ambition">Future Ambition</label>
             <div class="col-sm-10">
-              <input type="text" name="timeframe" required="required" value="" placeholder="Months ,Years,Days to finish school" id="input-time" class="form-control" />
+              <input type="text" name="future_ambition" required="required"  value="" placeholder="Future Ambition" id="future_ambition" class="form-control" />
             </div>
-          </div>-->
+          </div>
            <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-lastname">Grade</label>
               <div class="col-sm-10">
@@ -101,16 +101,16 @@
                     <option  value="Primary 5">Primary 5</option>
               </select>
               </div>
-            </div>
+         </div>
            
              
-          
+            <!-- 
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-postcode">Description</label>
             <div class="col-sm-10">
-              <textarea  name="description" required="required"  class="form-control" ></textarea>
+              <textarea  name="description"  class="form-control" ></textarea>
             </div>
-          </div>
+          </div>--> 
           
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-file">Image</label>

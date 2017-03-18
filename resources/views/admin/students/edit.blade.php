@@ -37,6 +37,12 @@
               <input type="text" name="student_last_name" required="required" value="{{  !empty($student->last_name) ?  $student->last_name : ''    }}" placeholder="Last Name" id="input-lastname" class="form-control" />
                           </div>
           </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-future_ambition">Future Ambition</label>
+            <div class="col-sm-10">
+              <input type="text" name="future_ambition" required="required" value="{{  !empty($student->future_ambition) ?  $student->future_ambition : ''    }}" placeholder="Future Ambition" id="input-future_ambition" class="form-control" />
+                          </div>
+          </div>
            <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-grade">Grade</label>
               <div class="col-sm-10">

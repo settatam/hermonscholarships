@@ -37,7 +37,7 @@
 
         <div class="caption">
         <h3>{{ $details->name}}  {{ $details->last_name}}</h3>
-        <p class="truncate">{{ $details->description}}</p>
+        <p class="truncate">{{-- $details->description--}}</p>
 
       </div>
     </div>

@@ -37,6 +37,9 @@
 
           <p class="margin-top-40">
 
+          <p>{{--$student->created_at--}}</p>
+            {{--$student->description--}}
+          </p>
 
         <hr/>
 
@@ -74,8 +77,7 @@
 
 
        </div><!-- /.row -->
-     <div class="row">
-</div>
+        <div class="row"></div>
      </div>
    </div>
 @endsection
