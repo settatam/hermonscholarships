@@ -75,7 +75,7 @@
 
 
               <button class="cta" type="submit">CONTINUE</button>
-              <span class="privacy"><a href="<?=SITE_URL?>/privacy">We respect your privacy</a></span>
+              <span class="privacy">/privacy">We respect your privacy</a></span>
 
             </form>
 
