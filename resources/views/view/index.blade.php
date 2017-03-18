@@ -74,8 +74,7 @@
                 </div>
 
 
-              <button class="cta" type="submit">CONTINUE</button>
-              <span class="privacy">/privacy">We respect your privacy</a></span>
+              <button class="cta btn btn-default" type="button">CONTINUE</button>
 
             </form>
 
