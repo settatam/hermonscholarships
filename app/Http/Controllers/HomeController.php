@@ -25,15 +25,19 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-	   
+    {
+
 		// Better
-		  
+
 		$students = \DB::table('students')
             ->join('photos', 'students.id', '=', 'photos.student_id')
             ->select('students.*', 'photos.photos')
             ->get();
-		
+
         return view('index',compact('students'));
+    }
+
+    public function about() {
+        return view('about');
     }
 }

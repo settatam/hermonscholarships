@@ -45,21 +45,39 @@
 
 
        <div class="media">
-               <h3 class="">{{date('Y')}} Academic Calender  For {{$student->fullname()}}</h3>
+               <h3 class="">Fill the form below to provide a future for: {{$student->fullname()}}</h3>
                 <hr/>
-                  <div class="">
-                  @if(count($calender))
-                    @foreach($calender as $details)
-                   <h4>{{$details->title}}</h4>
-                   <p>{{$details->description}}</p>
-                   <hr/>
-                    @endforeach
 
-                   @else
+                <form>
 
-                    <h4>No Calender Yet</h4>
-                  @endif
-                  </div>
+
+                <div class="form-group">
+                  <label for="firstname">First Name: <span>*</span></label>
+                  <input type="text" class="form-control required" id="firstname" name="firstname">
+
+                </div>
+
+
+                <div class="form-group">
+                  <label for="lastname">Last Name: <span>*</span></label>
+                  <input type="text" class="form-control required" id="lastname" name="lastname">
+                </div>
+
+                <div class="form-group">
+                  <label for="lastname">Email: <span>*</span></label>
+                  <input type="text" class="form-control required" id="email" name="email">
+                </div>
+
+                <div class="form-group">
+                  <label for="lastname">Phone: <span>*</span></label>
+                  <input type="text" class="form-control" id="phone" name="phone">
+                </div>
+
+
+              <button class="cta" type="submit">CONTINUE</button>
+              <span class="privacy"><a href="<?=SITE_URL?>/privacy">We respect your privacy</a></span>
+
+            </form>
 
             </div>
         </div>

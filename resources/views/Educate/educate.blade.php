@@ -14,7 +14,7 @@ Join Thousands of People Who Are Giving A Child A Future</p>
 
 
     <div class="container">
-   
+
      <div class="text-center starter-template">
         <h1>Choose a Child to support</h1>
         <p class="lead">100% of your Donation will go into their education</p>
@@ -33,8 +33,6 @@ Join Thousands of People Who Are Giving A Child A Future</p>
 
         <div class="caption">
         <h3>{{ $details->name}}  {{ $details->last_name}}</h3>
-        <p class="truncate">{{ $details->description}}</p>
-
       </div>
     </div>
     </a>
@@ -43,6 +41,6 @@ Join Thousands of People Who Are Giving A Child A Future</p>
   @endforeach
 
 </div><!-- /.row -->
-      
-   </div>   
+
+   </div>
 @endsection
