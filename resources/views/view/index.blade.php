@@ -74,7 +74,7 @@
                 </div>
 
 
-              <button class="cta btn btn-default" type="button">CONTINUE</button>
+              <button class="cta btn btn-primary" type="button">CONTINUE</button>
 
             </form>
 
