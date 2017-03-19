@@ -48,7 +48,7 @@
                <h3 class="">Fill the form below to provide a future for: {{$student->fullname()}}</h3>
                 <hr/>
 
-                <script src="https://js.stripe.com/v3/"></script>
+
 
                 <form action="/charge" method="post" id="payment-form">
 
@@ -112,11 +112,15 @@
    </div>
 @endsection
 
-
+<script src="https://js.stripe.com/v3/"></script>
 <script>
+
+
 
 // Create a Stripe client
 var stripe = Stripe('pk_test_VGtQtFHvb7JYFUwKTAejqKuZ');
+
+console.log(stripe)
 
 // Create an instance of Elements
 var elements = stripe.elements();
@@ -144,7 +148,7 @@ var style = {
 var card = elements.create('card', {style: style});
 
 // Add an instance of the card Element into the `card-element` <div>
-card.mount('#card-element');
+//card.mount('#card-element');
 
 // Handle real-time validation errors from the card Element.
 card.addEventListener('change', function(event) {
