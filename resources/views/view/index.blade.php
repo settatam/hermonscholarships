@@ -159,3 +159,13 @@
 @endsection
 
 <script src="https://js.stripe.com/v3/"></script>
+<script>
+$(function() {
+  alert('loaded');
+})
+function scrollToDiv(div) {
+    $('html, body').animate({
+        scrollTop: $("#"+div).offset().top - 200
+    }, 1000);
+}
+</script>
