@@ -100,7 +100,7 @@
      </div>
    </div>
 @endsection
-
+<script src="https://js.stripe.com/v3/"></script>
 <script>
 
 // Create a Stripe client
