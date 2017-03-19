@@ -56,6 +56,10 @@
                     Credit or debit card
                   </label>
 
+                  <div id="card-element">
+                      <!-- a Stripe Element will be inserted here. -->
+                    </div>
+
                 <div class="form-group">
                   <label for="firstname">First Name: <span>*</span></label>
                   <input type="text" class="form-control required" id="firstname" name="firstname">
