@@ -57,7 +57,7 @@
                   </label>
 
                   <div id="card-element">
-                      <!-- a Stripe Element will be inserted here. -->
+
                     </div>
 
                 <div class="form-group">
