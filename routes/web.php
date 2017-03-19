@@ -52,3 +52,4 @@ Route::get('/changepassword',    'AccountController@chp');
 Route::get('/address',           'AccountController@address');
 Route::get('/donations',         'AccountController@donations');
 Route::get('/about',             'HomeController@about');
+Route::post('/charge',           'FundController@charge');
