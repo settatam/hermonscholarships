@@ -17,7 +17,7 @@ class FundController extends Controller
 	}
 
 	public function charge(Request $request) {
-		dd($request->input());
+		return view('charge');
 	}
 
 }
