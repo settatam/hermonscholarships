@@ -43,7 +43,7 @@
 
         <hr/>
 
-
+        <script src="https://js.stripe.com/v3/"></script>
        <div class="media">
                <h3 class="">Fill the form below to provide a future for: {{$student->fullname()}}</h3>
                 <hr/>
@@ -107,7 +107,7 @@
      </div>
    </div>
 @endsection
-<script src="https://js.stripe.com/v3/"></script>
+
 <script>
 
 // Create a Stripe client
