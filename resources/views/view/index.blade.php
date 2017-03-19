@@ -48,7 +48,7 @@
                <h3 class="">Fill the form below to provide a future for: {{$student->fullname()}}</h3>
                 <hr/>
 
-                <form id="payment-form">
+                <form action="/charge" method="post" id="payment-form">
 
                 <fieldset>
 
@@ -81,9 +81,11 @@
                 </div>
 
               </fieldset>
-
+              <!-- Used to display form errors -->
+              <div id="card-errors"></div>
 
               <button class="cta btn btn-primary" type="submit">CONTINUE</button>
+
 
             </form>
 
