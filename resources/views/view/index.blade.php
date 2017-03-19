@@ -56,9 +56,7 @@
                     Credit or debit card
                   </label>
 
-                  <div id="card-element">
-
-                    </div>
+                  <div id="card-element">&nbsp;</div>
 
                 <div class="form-group">
                   <label for="firstname">First Name: <span>*</span></label>
