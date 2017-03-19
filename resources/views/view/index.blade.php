@@ -91,22 +91,9 @@
               </fieldset>
               <!-- Used to display form errors -->
 
-              <button class="cta btn btn-primary" type="submit">CONTINUE</button>
-
-
-
 
             <fieldset>
               <h2> Payment Details </h2>
-              <script
-                  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                  data-key="pk_test_VGtQtFHvb7JYFUwKTAejqKuZ"
-                  data-amount="12"
-                  data-name="HermonScholarships.com"
-                  data-description="Widget"
-                  data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                  data-locale="auto">
-              </script>
 
               <div class="form-group">
                 <label for="cardnmber">Card Number: <span>*</span></label>
@@ -130,7 +117,15 @@
 
 
             </fieldset>
-
+            <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_VGtQtFHvb7JYFUwKTAejqKuZ"
+                data-amount="12"
+                data-name="HermonScholarships.com"
+                data-description="Widget"
+                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                data-locale="auto">
+            </script>
           </form>
 
             </div>
