@@ -55,7 +55,7 @@
                   <label for="card-element">Card</label>
                   <div id="card-element"></div>
 
-                  {{ csrf_token }}
+                {{ csrf_field() }}
 
                 <fieldset>
 
