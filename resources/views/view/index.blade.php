@@ -147,7 +147,7 @@
             <p> With $12 a month, you can provide a future for {{ $student->fullname() }}. To Support her, please click the sponsor button below.</p>
           </p>
 
-          <a href="#" class="cta"> SPONSOR {{ $student->fullname() }} </a>
+          <a href="#" class="cta" id="go-to-form"> SPONSOR {{ $student->fullname() }} </a>
 
         </div>
 
@@ -159,6 +159,7 @@
 @endsection
 
 <script src="https://js.stripe.com/v3/"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
 $(function() {
   alert('loaded');
