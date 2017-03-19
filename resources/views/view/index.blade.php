@@ -91,6 +91,11 @@
 
             </form>
 
+            <fieldset>
+              <h2> Payment Details </h2>
+
+            </fieldset>
+
             </div>
         </div>
 
@@ -120,10 +125,12 @@
 // Create a Stripe client
 var stripe = Stripe('pk_test_VGtQtFHvb7JYFUwKTAejqKuZ');
 
-console.log(stripe)
+
 
 // Create an instance of Elements
 var elements = stripe.elements();
+
+console.log(elements)
 
 // Custom styling can be passed to options when creating an Element.
 // (Note that this demo uses a wider set of styles than the guide below.)
@@ -148,7 +155,7 @@ var style = {
 var card = elements.create('card', {style: style});
 
 // Add an instance of the card Element into the `card-element` <div>
-//card.mount('#card-element');
+card.mount('#card-element');
 
 // Handle real-time validation errors from the card Element.
 card.addEventListener('change', function(event) {
