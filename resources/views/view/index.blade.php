@@ -51,6 +51,11 @@
                 <form id="payment-form">
 
                 <fieldset>
+
+                  <label for="card-element">
+                    Credit or debit card
+                  </label>
+
                 <div class="form-group">
                   <label for="firstname">First Name: <span>*</span></label>
                   <input type="text" class="form-control required" id="firstname" name="firstname">
