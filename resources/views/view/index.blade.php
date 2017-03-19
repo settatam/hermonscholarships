@@ -52,6 +52,9 @@
 
                 <form action="/charge" method="post" id="payment-form">
 
+                  <label for="card-element">Card</label>
+                  <div id="card-element"></div>
+
                 <fieldset>
 
                   <label for="card-element">
@@ -153,6 +156,7 @@ var style = {
 
 // Create an instance of the card Element
 var card = elements.create('card', {style: style});
+console.log(card);
 
 // Add an instance of the card Element into the `card-element` <div>
 card.mount('#card-element');
