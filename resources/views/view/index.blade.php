@@ -163,6 +163,11 @@
 <script>
 $(function() {
   alert('loaded');
+
+  $('#go-to-form').on('click', function(e) {
+      e.preventDefault();
+      scrollToDiv('payment-form');
+  })
 })
 function scrollToDiv(div) {
     $('html, body').animate({
