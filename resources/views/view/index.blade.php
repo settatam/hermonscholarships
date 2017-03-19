@@ -96,6 +96,15 @@
               <h2> Payment Details </h2>
 
               <div class="form-group">
+                <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+                <div class="input-group">
+                  <div class="input-group-addon">$</div>
+                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" value="12">
+                  <div class="input-group-addon">.00</div>
+                </div>
+              </div>
+
+              <div class="form-group">
                 <label for="cardnmber">Card Number: <span>*</span></label>
                 <input type="text" class="form-control required" id="email" name="email">
               </div>
