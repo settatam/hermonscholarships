@@ -64,7 +64,7 @@
                   <div id="card-element">&nbsp;</div>
 
                   <h2> ENTER YOUR DETAILS </h3>
-                    <hr>
+                  <hr>
 
                 <div class="form-group">
                   <label for="firstname">First Name: <span>*</span></label>
@@ -90,26 +90,48 @@
 
               </fieldset>
               <!-- Used to display form errors -->
-              <div id="card-errors"></div>
 
               <button class="cta btn btn-primary" type="submit">CONTINUE</button>
 
 
-            </form>
+
 
             <fieldset>
               <h2> Payment Details </h2>
               <script
                   src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                   data-key="pk_test_VGtQtFHvb7JYFUwKTAejqKuZ"
-                  data-amount="999"
-                  data-name="ELEMATA.COM"
+                  data-amount="12"
+                  data-name="HermonScholarships.com"
                   data-description="Widget"
                   data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
                   data-locale="auto">
               </script>
 
+              <div class="form-group">
+                <label for="cardnmber">Card Number: <span>*</span></label>
+                <input type="text" class="form-control required" id="email" name="email">
+              </div>
+
+              <div class="form-group">
+                <label for="cardname">Name on Card: <span>*</span></label>
+                <input type="text" class="form-control required" id="email" name="email">
+              </div>
+
+              <div class="form-group">
+                <label for="expirydate">Expiry Date: <span>*</span></label>
+                <input type="text" class="form-control required" id="email" name="email">
+              </div>
+
+              <div class="form-group">
+                <label for="expirydate">Zip Code: <span>*</span></label>
+                <input type="text" class="form-control required" id="email" name="email">
+              </div>
+
+
             </fieldset>
+
+          </form>
 
             </div>
         </div>
